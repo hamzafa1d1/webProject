@@ -1,8 +1,7 @@
-package com.example.demo.repository;
+package com.example.webproject.repository;
 import java.time.LocalTime;
 import java.util.List ;
-import com.example.demo.model.pathEntity;
-import org.springframework.cglib.core.Local;
+import com.example.webproject.model.pathEntity;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;

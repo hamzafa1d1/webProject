@@ -1,6 +1,6 @@
-package com.example.demo.repository;
+package com.example.webproject.repository;
 
-import com.example.demo.model.busEntity;
+import com.example.webproject.model.busEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BussesRepository extends JpaRepository<busEntity,Long> {
