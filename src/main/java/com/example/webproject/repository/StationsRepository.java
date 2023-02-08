@@ -1,8 +1,7 @@
-package com.example.demo.repository;
+package com.example.webproject.repository;
 
-import com.example.demo.model.stationEntity;
+import com.example.webproject.model.stationEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

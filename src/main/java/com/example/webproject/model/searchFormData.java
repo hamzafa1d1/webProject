@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.webproject.model;
 
 import java.time.LocalTime;
 
