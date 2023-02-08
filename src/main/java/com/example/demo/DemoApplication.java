@@ -7,8 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		DatabaseTest databaseTest = SpringApplication.run(DemoApplication.class, args).getBean(DatabaseTest.class);
-		databaseTest.testConnection();
+		SpringApplication.run(DemoApplication.class , args) ;
 	}
 
 }
