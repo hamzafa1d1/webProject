@@ -1,0 +1,126 @@
+<!-- Creates the bootstrap modal where the image will appear -->
+
+<div class="modal-dialog modal-lg">
+  <div
+    class="container modal-content"
+    [class.right-panel-active]="!switch1"
+    id="container"
+  >
+    <div class="form-container sign-up-container modal-body">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <h1>Create Account</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your email for registration</span>
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="Name"
+          [ngClass]="{ 'is-invalid': submitted && name?.errors }"
+        />
+        <div *ngIf="submitted && name?.errors" class="invalid-feedback">
+          <div *ngIf="name?.errors?.['required']">name is required</div>
+        </div>
+
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Email"
+          [ngClass]="{ 'is-invalid': submitted && email?.errors }"
+        />
+        <div *ngIf="submitted && email?.errors" class="invalid-feedback">
+          <div *ngIf="email?.errors?.['required']">Email is required</div>
+          <div *ngIf="email?.errors?.['email']">
+            Email must be a valid email address
+          </div>
+        </div>
+        <input
+          type="password"
+          formControlName="password"
+          [ngClass]="{ 'is-invalid': submitted && password?.errors }"
+          placeholder="Password"
+        />
+        <div *ngIf="submitted && password?.errors" class="invalid-feedback">
+          <div *ngIf="password?.errors?.['required']">Password is required</div>
+          <div *ngIf="password?.errors?.['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+        <button>Sign Up</button>
+        <span (click)="hide()" class="glyphicon glyphicon-remove-circle"></span>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h1>Sign in</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your account</span>
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Email"
+          [ngClass]="{ 'is-invalid': submitted && email?.errors }"
+        />
+        <div *ngIf="submitted && loginemail?.errors" class="invalid-feedback">
+          <div *ngIf="loginemail?.errors?.['required']">Email is required</div>
+          <div *ngIf="loginemail?.errors?.['email']">
+            Email must be a valid email address
+          </div>
+        </div>
+        <input
+          type="password"
+          formControlName="password"
+          [ngClass]="{ 'is-invalid': submitted && password?.errors }"
+          placeholder="Password"
+        />
+        <div
+          *ngIf="submitted && loginpassword?.errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="loginpassword?.errors?.['required']">
+            Password is required
+          </div>
+          <div *ngIf="loginpassword?.errors?.['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+        <a href="#">Forgot your password?</a>
+        <button>Sign In</button>
+        <span (click)="hide()" class="glyphicon glyphicon-remove-circle"></span>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button
+            class="ghost right-panel-active"
+            (click)="switchfn()"
+            id="signIn"
+          >
+            Sign In
+          </button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start journey with us</p>
+          <button
+            class="ghost right-panel-active"
+            (click)="switchfn()"
+            id="signUp"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
