@@ -6,9 +6,11 @@ public class CompositeKey implements Serializable {
 
     private int busId;
     private int idStations;
-    public CompositeKey(int busId, int idStations) {
+    private int id ;
+    public CompositeKey(int busId, int idStations , int id) {
         this.busId = busId;
         this.idStations = idStations;
+        this.id = id ;
     }
 
     public CompositeKey() {

@@ -11,6 +11,9 @@ import java.time.LocalTime;
 @IdClass(CompositeKey.class)
 public class pathEntity {
     @Id
+    @Column(name= "id")
+    private int id ;
+    @Id
     @Column(name= "bus_id")
     private int busId ;
     @Id
