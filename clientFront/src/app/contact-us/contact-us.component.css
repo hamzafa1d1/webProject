@@ -1,0 +1,26 @@
+.btn-submit{
+    background: #4b56d2;
+    border-radius: 35px;
+    width: 86.3438px;
+  }
+  .contact-name{
+    border-radius: 41px;
+    width: 308px;
+    background: #ddecff}
+    .contact-email{
+      border-radius: 41px; 
+      background: #ddecff
+    }
+    .contact-message{
+      border-radius: 41px; background: #ddecff
+    }
+.contact-img{
+  width: 597px
+}
+
+@media screen (min-width: 992px) {
+  .contact-img{
+    width: 300px
+  }
+  
+}

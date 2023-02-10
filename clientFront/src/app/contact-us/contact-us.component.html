@@ -1,0 +1,75 @@
+<form [formGroup]="form" (click)="onSubmit()">
+  <section id="contact-us" class="py-4 py-xl-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-7">
+          <img src="assets/img/contact img.png" class="contact-img" />
+        </div>
+        <div class="col-md-6 col-xl-4">
+          <div>
+            <form
+              class="p-3 p-xl-4"
+              method="post"
+              [formGroup]="form"
+              (click)="onSubmit()"
+            >
+              <div class="mb-3" style="width: 282px">
+                <label class="form-label" for="name">Name</label
+                ><input
+                  formControlName="name"
+                  class="form-control contact-name"
+                  type="text"
+                  id="name"
+                  name="name"
+                />
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="name?.touched && !name?.valid"
+              >
+                <div *ngIf="name?.errors?.['required']">name is require</div>
+                <div *ngIf="name?.errors?.['minlength']">
+                  name should be minimum
+                  {{name?.errors?.['minlength'].requiredLength}} characters
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="email">Email</label
+                ><input
+                  formControlName="email"
+                  class="form-control contact-email"
+                  type="email"
+                  id="email"
+                  name="email"
+                />
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="email?.touched && !email?.valid"
+              >
+                <div *ngIf="email?.errors?.['required']">email is require</div>
+                <div *ngIf="email?.errors?.['email']">
+                  this is not an email format
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="message">Message</label
+                ><textarea
+                  class="form-control contact-message"
+                  id="message"
+                  name="message"
+                  rows="6"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <button class="btn btn-primary btn-submit" type="submit">
+                  Send
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
