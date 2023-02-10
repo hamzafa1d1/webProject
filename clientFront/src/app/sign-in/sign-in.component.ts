@@ -1,4 +1,7 @@
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { Component, Input } from '@angular/core';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -61,4 +64,6 @@ export class SignInComponent {
   switchfn() {
     this.switch1 = !this.switch1;
   }
+  faFacebook = faFacebook;
+  faGoogle = faGoogle;
 }

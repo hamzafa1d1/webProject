@@ -253,14 +253,6 @@ footer a {
     text-decoration: none;
 }
 .social-icon{
-    width: 40px
+    width: 100px
   }
-  .modal-lgr{
-	width: 800px;
-  }
-@media screen and (max-width:992px) {
-	.modal-lgr{
-		width: 350px ;
-		height: 100%;
-	}
-}  
+  

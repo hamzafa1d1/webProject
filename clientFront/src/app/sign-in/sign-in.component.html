@@ -1,6 +1,8 @@
 <!-- Creates the bootstrap modal where the image will appear -->
 
-<div class="modal-dialog modal-lgr">
+<div
+  class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+>
   <div
     class="container modal-content"
     [class.right-panel-active]="!switch1"
@@ -10,9 +12,12 @@
       <form [formGroup]="registerForm">
         <h1>Create Account</h1>
         <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"
+            ><fa-icon [icon]="faFacebook" class="social-icon"></fa-icon
+          ></a>
+          <a href="#" class="social"
+            ><fa-icon [icon]="faGoogle" size="xs"></fa-icon
+          ></a>
         </div>
         <span>or use your email for registration</span>
         <input
@@ -66,9 +71,10 @@
       <form [formGroup]="loginForm">
         <h1>Sign in</h1>
         <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social"
+            ><fa-icon [icon]="faFacebook" class="social-icon"></fa-icon
+          ></a>
+          <a href="#" class="social"><fa-icon [icon]="faGoogle"></fa-icon></a>
         </div>
         <span>or use your account</span>
         <input

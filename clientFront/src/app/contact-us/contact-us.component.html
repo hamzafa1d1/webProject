@@ -21,6 +21,9 @@
                   type="text"
                   id="name"
                   name="name"
+                  [ngClass]="{
+                    'is-invalid': name?.touched && name?.invalid
+                  }"
                 />
               </div>
               <div
@@ -41,6 +44,9 @@
                   type="email"
                   id="email"
                   name="email"
+                  [ngClass]="{
+                    'is-invalid': email?.touched && email?.invalid
+                  }"
                 />
               </div>
               <div
