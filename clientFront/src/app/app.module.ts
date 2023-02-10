@@ -7,6 +7,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MembersComponent } from './members/members.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     MembersComponent,
     SignInComponent,
     ContactUsComponent,
+    ChangePasswordComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

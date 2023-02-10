@@ -18,7 +18,7 @@
   width: 597px
 }
 
-@media screen (min-width: 992px) {
+@media screen and (max-width: 992px) {
   .contact-img{
     width: 300px
   }

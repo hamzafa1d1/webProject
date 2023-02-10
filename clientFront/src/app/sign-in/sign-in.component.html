@@ -1,13 +1,13 @@
 <!-- Creates the bootstrap modal where the image will appear -->
 
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-lgr">
   <div
     class="container modal-content"
     [class.right-panel-active]="!switch1"
     id="container"
   >
     <div class="form-container sign-up-container modal-body">
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="registerForm">
         <h1>Create Account</h1>
         <div class="social-container">
           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -19,9 +19,11 @@
           type="text"
           formControlName="name"
           placeholder="Name"
-          [ngClass]="{ 'is-invalid': submitted && name?.errors }"
+          [ngClass]="{
+            'is-invalid': name?.touched && name?.invalid
+          }"
         />
-        <div *ngIf="submitted && name?.errors" class="invalid-feedback">
+        <div *ngIf="name?.touched && name?.invalid" class="invalid-feedback">
           <div *ngIf="name?.errors?.['required']">name is required</div>
         </div>
 
@@ -29,9 +31,11 @@
           type="email"
           formControlName="email"
           placeholder="Email"
-          [ngClass]="{ 'is-invalid': submitted && email?.errors }"
+          [ngClass]="{
+            'is-invalid': email?.touched && email?.invalid
+          }"
         />
-        <div *ngIf="submitted && email?.errors" class="invalid-feedback">
+        <div *ngIf="email?.touched && email?.invalid" class="invalid-feedback">
           <div *ngIf="email?.errors?.['required']">Email is required</div>
           <div *ngIf="email?.errors?.['email']">
             Email must be a valid email address
@@ -40,10 +44,15 @@
         <input
           type="password"
           formControlName="password"
-          [ngClass]="{ 'is-invalid': submitted && password?.errors }"
           placeholder="Password"
+          [ngClass]="{
+            'is-invalid': password?.touched && password?.invalid
+          }"
         />
-        <div *ngIf="submitted && password?.errors" class="invalid-feedback">
+        <div
+          *ngIf="password?.touched && password?.invalid"
+          class="invalid-feedback"
+        >
           <div *ngIf="password?.errors?.['required']">Password is required</div>
           <div *ngIf="password?.errors?.['minlength']">
             Password must be at least 6 characters
@@ -54,7 +63,7 @@
       </form>
     </div>
     <div class="form-container sign-in-container">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="loginForm">
         <h1>Sign in</h1>
         <div class="social-container">
           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -66,9 +75,14 @@
           type="email"
           formControlName="email"
           placeholder="Email"
-          [ngClass]="{ 'is-invalid': submitted && email?.errors }"
+          [ngClass]="{
+            'is-invalid': loginemail?.touched && loginemail?.invalid
+          }"
         />
-        <div *ngIf="submitted && loginemail?.errors" class="invalid-feedback">
+        <div
+          *ngIf="loginemail?.touched && loginemail?.invalid"
+          class="invalid-feedback"
+        >
           <div *ngIf="loginemail?.errors?.['required']">Email is required</div>
           <div *ngIf="loginemail?.errors?.['email']">
             Email must be a valid email address
@@ -77,11 +91,13 @@
         <input
           type="password"
           formControlName="password"
-          [ngClass]="{ 'is-invalid': submitted && password?.errors }"
+          [ngClass]="{
+            'is-invalid': loginpassword?.touched && loginpassword?.invalid
+          }"
           placeholder="Password"
         />
         <div
-          *ngIf="submitted && loginpassword?.errors"
+          *ngIf="loginpassword?.touched && loginpassword?.invalid"
           class="invalid-feedback"
         >
           <div *ngIf="loginpassword?.errors?.['required']">

@@ -255,3 +255,12 @@ footer a {
 .social-icon{
     width: 40px
   }
+  .modal-lgr{
+	width: 800px;
+  }
+@media screen and (max-width:992px) {
+	.modal-lgr{
+		width: 350px ;
+		height: 100%;
+	}
+}  
