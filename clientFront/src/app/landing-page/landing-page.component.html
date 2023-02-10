@@ -35,7 +35,7 @@
               <a class="nav-link active" href="#home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#our-service">Our service</a>
+              <a class="nav-link" routerLink="./search-page">Our service</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#our-team">Our team</a>
@@ -58,7 +58,7 @@
   <section id="home" style="width: 100%; height: 100%">
     <div class="container">
       <div>
-        <div class="row gy4 gy-md-0">
+        <div class="row">
           <div class="col-xl-1" style="width: 25px; padding: 0">
             <div class="rect"></div>
           </div>
@@ -70,11 +70,7 @@
                 industry.
               </p>
               <div>
-                <button
-                  class="btn btn-primary signup"
-                  (click)="show()"
-                  type="button"
-                >
+                <button  class="btn btn-primary signup" type="button">
                   SIGN UP</button
                 ><button class="btn btn-primary btn-demo" type="button">
                   Find your Bus
@@ -83,36 +79,24 @@
             </div>
           </div>
           <div class="col">
-            <img src="../assets/img/clipboard-image-2.png" class="bus-img" />
+            <img
+              src="../assets/img/clipboard-image-2.png"
+              style="width: 640px; margin: 7px; padding: 0"
+            />
           </div>
         </div>
       </div>
     </div>
   </section>
 </div>
-<div class="container container-counter">
-  <div class="text-center second text-white-50 bg-primary border border-0 p-3">
-    <div class="row row-cols-2 row-cols-md-3">
-      <div class="col">
-        <div class="p-3">
-          <h4 class="display-5 fw-bold text-white mb-0">123+</h4>
-          <p class="mb-0">Registred Member</p>
-        </div>
-      </div>
-      <div class="col">
-        <div class="p-3">
-          <h4 class="display-5 fw-bold text-white mb-0">45+</h4>
-          <p class="mb-0">Review Submitted</p>
-        </div>
-      </div>
-      <div class="col">
-        <div class="p-3">
-          <h4 class="display-5 fw-bold text-white mb-0">67+</h4>
-          <p class="mb-0">Bus Registred</p>
-        </div>
-      </div>
-    </div>
+<div class="second">
+  <div>
+    <h1 class="h1Where">Where are you going?</h1>
+    <p class="h1Where">
+      Here you can find all bus destination and timing details of all busses
+    </p>
   </div>
+  <div></div>
 </div>
 <div id="our-service" class="container py-4 py-xl-5">
   <div class="row mb-5">
@@ -242,17 +226,4 @@
   <sign-in></sign-in>
 </div>
 
-<div *ngIf="showOverlay">
-  <div
-    id="overlay"
-    [ngStyle]="{
-      background: 'rgba(0,0,0,0.5)',
-      position: 'fixed',
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-      zIndex: 1000
-    }"
-  ></div>
-</div>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>

@@ -1,0 +1,30 @@
+/* component.css */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  /*width: 25%;*/
+  padding: 20px;
+  max-width: 300px;
+}
+
+.right {
+  width: 75%;
+  padding: 20px;
+
+}
+.card {
+  background-color: #e1f5fe;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  margin: 40px auto;
+  padding: 40px;
+}
+ /*styling the form field */
+
+
+

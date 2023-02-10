@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,12 +10,9 @@ export class LandingPageComponent {
   showModal!: boolean;
   registerForm!: FormGroup;
   submitted = false;
-  showOverlay = false;
-
   constructor(private formBuilder: FormBuilder) {}
   show() {
-    this.showModal = true;
-    this.showOverlay = true; // Show-Hide Modal Check
+    this.showModal = true; // Show-Hide Modal Check
   }
   //Bootstrap Modal Close event
   hide() {

@@ -1,0 +1,109 @@
+<!-- component.html -->
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+    <div class="left">
+      <form [formGroup]="form"  (ngSubmit)="onSubmit()" >
+        <mat-form-field>
+          <mat-label>Start state</mat-label>
+          <mat-select formControlName="startState"   >
+            <mat-option *ngFor="let choice of states" [value]="choice">
+              {{ choice }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Start city</mat-label>
+          <mat-select formControlName="startCity">
+            <mat-option *ngFor="let choice of cities" [value]="choice">
+              {{ choice }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Start station</mat-label>
+          <mat-select formControlName="startStation">
+            <mat-option *ngFor="let choice of stations" [value]="choice">
+              {{ choice }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Ending State</mat-label>
+          <mat-select formControlName="endState">
+            <mat-option *ngFor="let choice of states" [value]="choice">
+              {{ choice }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Ending city</mat-label>
+          <mat-select formControlName="endCity">
+            <mat-option *ngFor="let choice of cities" [value]="choice">
+              {{ choice }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Ending station</mat-label>
+          <mat-select formControlName="endStation">
+            <mat-option *ngFor="let choice of stations" [value]="choice">
+              {{ choice }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+<!--        <mat-form-field *ngIf="showInput">-->
+<!--          <input matInput-->
+<!--                 name="selected_time"-->
+<!--                 [format]="24"-->
+<!--                formControlName="time"-->
+<!--                 [ngxMatTimepicker]="pickerC"-->
+<!--                 placeholder="12:00"-->
+<!--                 readonly />-->
+<!--          <mat-icon matSuffix-->
+<!--                    (click)="pickerC.open()">-->
+<!--            watch_later-->
+<!--          </mat-icon>-->
+<!--        </mat-form-field>-->
+
+        <mat-form-field>
+          <input matInput
+                 name="selected_time_B"
+                 [format]="24"
+                 formControlName="time"
+                 [ngxMatTimepicker]="pickerB"
+                 placeholder="16:00"
+                 readonly />
+          <mat-icon matSuffix
+                    (click)="pickerB.open()">
+            watch_later
+          </mat-icon>
+        </mat-form-field>
+        <ngx-mat-timepicker color="accent"
+                            #pickerB></ngx-mat-timepicker>
+        <br>
+        <button mat-raised-button >Locate your bus</button>
+      </form>
+    </div>
+    <div class="right">
+      <mat-grid-list cols="5" [cols]="breakpoint" rowHeight="200px">
+        <mat-grid-tile *ngFor="let item of items">
+          <mat-card class="card">
+            <mat-card-header>
+              <mat-card-title>{{item}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              Content 1
+            </mat-card-content>
+          </mat-card>
+
+        </mat-grid-tile>
+      </mat-grid-list>
+  </div>
+</div>

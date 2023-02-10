@@ -14,13 +14,3 @@
     .contact-message{
       border-radius: 41px; background: #ddecff
     }
-.contact-img{
-  width: 597px
-}
-
-@media screen (min-width: 992px) {
-  .contact-img{
-    width: 300px
-  }
-  
-}
