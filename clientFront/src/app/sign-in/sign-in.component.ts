@@ -1,4 +1,7 @@
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { Component, Input } from '@angular/core';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 declare var name: any;
@@ -12,7 +15,17 @@ export class SignInComponent {
   registerForm!: FormGroup;
   loginForm!: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(fb: FormBuilder) {
+    this.registerForm = fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      name: ['', [Validators.required]],
+    });
+    this.loginForm = fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
   show() {
     this.showModal = true; // Show-Hide Modal Check
   }
@@ -20,17 +33,7 @@ export class SignInComponent {
   hide() {
     this.showModal = false;
   }
-  ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      name: ['', [Validators.required]],
-    });
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-    });
-  }
+
   // convenience getter for easy access to form fields
   get email() {
     return this.registerForm.get('email');
@@ -61,6 +64,7 @@ export class SignInComponent {
   switch1 = true;
   switchfn() {
     this.switch1 = !this.switch1;
-    console.log('works');
   }
+  faFacebook = faFacebook;
+  faGoogle = faGoogle;
 }

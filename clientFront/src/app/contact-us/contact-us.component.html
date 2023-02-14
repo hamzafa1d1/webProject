@@ -16,6 +16,9 @@
                   type="text"
                   id="name"
                   name="name"
+                  [ngClass]="{
+                    'is-invalid': name?.touched && name?.invalid
+                  }"
                 />
                 <div
                   class="alert alert-danger"
@@ -37,6 +40,9 @@
                   type="email"
                   id="email"
                   name="email"
+                  [ngClass]="{
+                    'is-invalid': email?.touched && email?.invalid
+                  }"
                 />
                 <div
                   class="alert alert-danger"

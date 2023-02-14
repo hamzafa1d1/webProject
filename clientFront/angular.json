@@ -25,8 +25,13 @@
               "src/assets"
             ],
             "styles": [
+
+              "src/styles.css",
+              "/node_modules/font-awesome/css/font-awesome.css",
+
               "@angular/material/prebuilt-themes/pink-bluegrey.css",
-              "src/styles.css"
+              
+
             ],
             "scripts": ["src/assets/signin.js"]
           },

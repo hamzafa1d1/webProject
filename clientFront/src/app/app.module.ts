@@ -7,6 +7,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MembersComponent } from './members/members.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { SearchPageComponent } from './search-page/search-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
@@ -23,6 +27,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {NgxMatTimepickerDirective, NgxMatTimepickerModule} from "ngx-mat-timepicker";
 import {NgxMatTimepickerAdapter} from "ngx-mat-timepicker/lib/services/ngx-mat-timepicker-adapter";
 
+
 @NgModule({
   declarations: [
 
@@ -31,10 +36,22 @@ import {NgxMatTimepickerAdapter} from "ngx-mat-timepicker/lib/services/ngx-mat-t
     MembersComponent,
     SignInComponent,
     ContactUsComponent,
+
+    ChangePasswordComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+
+
     SearchPageComponent,
     NavBarComponent,
   ],
   imports: [ NgxMatTimepickerModule, HttpClientModule, BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, MatCardModule, MatInputModule, MatOptionModule, MatSelectModule, MatGridListModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatIconModule],
+
   providers: [],
   bootstrap: [AppComponent],
 })
