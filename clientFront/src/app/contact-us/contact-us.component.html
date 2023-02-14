@@ -1,18 +1,13 @@
-<form [formGroup]="form" (click)="onSubmit()">
+<form [formGroup]="form">
   <section id="contact-us" class="py-4 py-xl-5">
     <div class="container">
       <div class="row">
         <div class="col-xl-7">
-          <img src="assets/img/contact img.png" class="contact-img" />
+          <img src="assets/img/contact img.png" style="width: 597px" />
         </div>
         <div class="col-md-6 col-xl-4">
           <div>
-            <form
-              class="p-3 p-xl-4"
-              method="post"
-              [formGroup]="form"
-              (click)="onSubmit()"
-            >
+            <form class="p-3 p-xl-4" method="post">
               <div class="mb-3" style="width: 282px">
                 <label class="form-label" for="name">Name</label
                 ><input
@@ -25,16 +20,17 @@
                     'is-invalid': name?.touched && name?.invalid
                   }"
                 />
-              </div>
-              <div
-                class="invalid-feedback"
-                *ngIf="name?.touched && !name?.valid"
-              >
-                <div *ngIf="name?.errors?.['required']">name is require</div>
-                <div *ngIf="name?.errors?.['minlength']">
-                  name should be minimum
-                  {{name?.errors?.['minlength'].requiredLength}} characters
+                <div
+                  class="alert alert-danger"
+                  *ngIf="name?.touched && !name?.valid"
+                >
+                  <div *ngIf="name?.errors?.['required']">name is require</div>
+                  <div *ngIf="name?.errors?.['minlength']">
+                    name should be minimum
+                    {{name?.errors?.['minlength'].requiredLength}} characters
+                  </div>
                 </div>
+                <div class="alert alert-danger"></div>
               </div>
               <div class="mb-3">
                 <label class="form-label" for="email">Email</label
@@ -48,19 +44,22 @@
                     'is-invalid': email?.touched && email?.invalid
                   }"
                 />
-              </div>
-              <div
-                class="invalid-feedback"
-                *ngIf="email?.touched && !email?.valid"
-              >
-                <div *ngIf="email?.errors?.['required']">email is require</div>
-                <div *ngIf="email?.errors?.['email']">
-                  this is not an email format
+                <div
+                  class="alert alert-danger"
+                  *ngIf="email?.touched && !email?.valid"
+                >
+                  <div *ngIf="email?.errors?.['required']">
+                    email is require
+                  </div>
+                  <div *ngIf="email?.errors?.['email']">
+                    this is not an email format
+                  </div>
                 </div>
               </div>
               <div class="mb-3">
                 <label class="form-label" for="message">Message</label
                 ><textarea
+                  formControlName="message"
                   class="form-control contact-message"
                   id="message"
                   name="message"

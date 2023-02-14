@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+declare var name: any;
 @Component({
   selector: 'sign-in',
   templateUrl: './sign-in.component.html',
