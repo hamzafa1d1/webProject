@@ -1,14 +1,19 @@
 /* component.css */
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
 }
 
 .left {
   /*width: 25%;*/
   padding: 20px;
   max-width: 300px;
+  background-color: #F1F6F5;
+  margin: 0;
+ 
 }
 
 .right {

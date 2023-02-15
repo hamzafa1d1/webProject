@@ -29,6 +29,7 @@ import {
   NgxMatTimepickerModule,
 } from 'ngx-mat-timepicker';
 import { NgxMatTimepickerAdapter } from 'ngx-mat-timepicker/lib/services/ngx-mat-timepicker-adapter';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { NgxMatTimepickerAdapter } from 'ngx-mat-timepicker/lib/services/ngx-mat
     SearchPageComponent,
     NavBarComponent,
     ChangePasswordComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
