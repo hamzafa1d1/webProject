@@ -3,7 +3,7 @@
 
 <div class="container1">
   <div class="row">
-    <div class="left col-md-4">
+    <div class="left col-md-4 col">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <mat-form-field>
           <mat-label>Start state</mat-label>
@@ -90,18 +90,18 @@
         <button mat-raised-button>Locate your bus</button>
       </form>
     </div>
-    <div class="right col-md-8">
-      <mat-grid-list cols="5" [cols]="breakpoint" rowHeight="200px">
-        <mat-grid-tile *ngFor="let item of items">
-          <mat-card class="card">
-            <mat-card-header>
-              <mat-card-title>{{ item }}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content> Content 1 </mat-card-content>
-          </mat-card>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
+    <section class="right col">
+      <div class="row">
+        <div class="col col-md-4" *ngFor="let bus of busses">
+          <product
+            [src]="bus['mappath']"
+            [name]="bus['bus_name']"
+            [title]="bus['bus_plate']"
+          ></product>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
+
 <app-footer></app-footer>
