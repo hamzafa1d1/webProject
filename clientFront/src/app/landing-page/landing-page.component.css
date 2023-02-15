@@ -9,14 +9,10 @@
     background: linear-gradient(62.98deg, rgba(75, 86, 210, 0.5) -0.57%, #82C3EC 74.33%);
   
   }
-  .second{
-    width: 100%;
-    height: 400px;
-    /* Rectangle 5 */
-    background: linear-gradient(89.87deg, #82C3EC -36.43%, #4B56D2 100.95%);
-  
+  .bus-img{
+    width: 640px; margin: 7px; padding: 0
   }
-  
+ 
   .pur-nav{
     width: 100%;
      height: 82px
@@ -178,4 +174,26 @@
         border-radius: 50%;
       }
       
-      
+.second{
+background: linear-gradient(89.87deg, #82C3EC -36.43%, #4B56D2 100.95%);
+padding: 0;
+margin: 0;
+border-radius: 0;
+}      
+.container-counter{
+  padding: 0; 
+  margin: 0; 
+  max-width: 100%;
+  border-radius: 0;
+ 
+  
+}
+
+@media screen and (max-width :992px) {
+  .main{
+    height: 750px; ;
+  }
+  .bus-img{
+    width: 300px;
+  }
+}
