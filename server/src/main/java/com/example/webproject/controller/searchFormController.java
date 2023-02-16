@@ -19,8 +19,7 @@ public class searchFormController {
     public ResponseEntity<Map<LocalTime,Object>> submitForm(@RequestBody searchFormData searchFormData){
         System.out.println("time: " + searchFormData.getTime());
         Map<LocalTime, Object> responseData = SearchFormDataService.EligeableBusses(searchFormData);
-        return  ResponseEntity.ok().body(responseData) ;
-
+        return  ResponseEntity.ok().body(responseData);
     }
 
 }

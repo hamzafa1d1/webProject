@@ -6,8 +6,8 @@
       <form [formGroup]="form"  (ngSubmit)="onSubmit()" >
         <mat-form-field>
           <mat-label>Start state</mat-label>
-          <mat-select formControlName="startState"   >
-            <mat-option *ngFor="let choice of states" [value]="choice">
+          <mat-select formControlName="startState"  (selectionChange)="updateStartCities()"  >
+            <mat-option *ngFor="let choice of startStates" [value]="choice" >
               {{ choice }}
             </mat-option>
           </mat-select>
@@ -15,8 +15,8 @@
         <br>
         <mat-form-field>
           <mat-label>Start city</mat-label>
-          <mat-select formControlName="startCity">
-            <mat-option *ngFor="let choice of cities" [value]="choice">
+          <mat-select formControlName="startCity" (selectionChange)="updateStartStations()">
+            <mat-option *ngFor="let choice of startCities" [value]="choice">
               {{ choice }}
             </mat-option>
           </mat-select>
@@ -25,7 +25,7 @@
         <mat-form-field>
           <mat-label>Start station</mat-label>
           <mat-select formControlName="startStation">
-            <mat-option *ngFor="let choice of stations" [value]="choice">
+            <mat-option *ngFor="let choice of startStations" [value]="choice">
               {{ choice }}
             </mat-option>
           </mat-select>
@@ -33,8 +33,8 @@
         <br>
         <mat-form-field>
           <mat-label>Ending State</mat-label>
-          <mat-select formControlName="endState">
-            <mat-option *ngFor="let choice of states" [value]="choice">
+          <mat-select formControlName="endState" (selectionChange)="updateEndCities()">
+            <mat-option *ngFor="let choice of endStates" [value]="choice">
               {{ choice }}
             </mat-option>
           </mat-select>
@@ -42,8 +42,8 @@
         <br>
         <mat-form-field>
           <mat-label>Ending city</mat-label>
-          <mat-select formControlName="endCity">
-            <mat-option *ngFor="let choice of cities" [value]="choice">
+          <mat-select formControlName="endCity" (selectionChange)="updateEndStations()">
+            <mat-option *ngFor="let choice of endCities" [value]="choice">
               {{ choice }}
             </mat-option>
           </mat-select>
@@ -52,25 +52,12 @@
         <mat-form-field>
           <mat-label>Ending station</mat-label>
           <mat-select formControlName="endStation">
-            <mat-option *ngFor="let choice of stations" [value]="choice">
+            <mat-option *ngFor="let choice of endStations" [value]="choice">
               {{ choice }}
             </mat-option>
           </mat-select>
         </mat-form-field>
         <br>
-<!--        <mat-form-field *ngIf="showInput">-->
-<!--          <input matInput-->
-<!--                 name="selected_time"-->
-<!--                 [format]="24"-->
-<!--                formControlName="time"-->
-<!--                 [ngxMatTimepicker]="pickerC"-->
-<!--                 placeholder="12:00"-->
-<!--                 readonly />-->
-<!--          <mat-icon matSuffix-->
-<!--                    (click)="pickerC.open()">-->
-<!--            watch_later-->
-<!--          </mat-icon>-->
-<!--        </mat-form-field>-->
 
         <mat-form-field>
           <input matInput
@@ -86,24 +73,26 @@
           </mat-icon>
         </mat-form-field>
         <ngx-mat-timepicker color="accent"
-                            #pickerB></ngx-mat-timepicker>
+                          #pickerB></ngx-mat-timepicker>
         <br>
         <button mat-raised-button >Locate your bus</button>
       </form>
     </div>
-    <div class="right">
-      <mat-grid-list cols="5" [cols]="breakpoint" rowHeight="200px">
-        <mat-grid-tile *ngFor="let item of items">
-          <mat-card class="card">
-            <mat-card-header>
-              <mat-card-title>{{item}}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              Content 1
-            </mat-card-content>
-          </mat-card>
+    <div class="right" *ngIf="searchData">
+          <div class="a-box" *ngFor="let  item of busTimes">
+            <div class="img-container">
+              <div class="img-inner">
+                <div class="inner-skew">
+                  <img src="assets/img/busImage.jpg">
+                </div>
+              </div>
+            </div>
+            <div class="text-container">
+              <div class="cardTime">{{item}}</div>
+              <button mat-mini-fab color="accent" id="submitBtn">Details</button>
 
-        </mat-grid-tile>
-      </mat-grid-list>
+            </div>
+          </div>
+
   </div>
 </div>
