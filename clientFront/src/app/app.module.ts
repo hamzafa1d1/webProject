@@ -29,6 +29,10 @@ import {
   NgxMatTimepickerModule,
 } from 'ngx-mat-timepicker';
 import { NgxMatTimepickerAdapter } from 'ngx-mat-timepicker/lib/services/ngx-mat-timepicker-adapter';
+import { FooterComponent } from './footer/footer.component';
+import { ProductComponent } from './product/product.component';
+import { CommonModule } from '@angular/common';
+import { BusDetailsComponent } from './bus-details/bus-details.component';
 
 @NgModule({
   declarations: [
@@ -40,9 +44,13 @@ import { NgxMatTimepickerAdapter } from 'ngx-mat-timepicker/lib/services/ngx-mat
     SearchPageComponent,
     NavBarComponent,
     ChangePasswordComponent,
+    ProductComponent,
+    FooterComponent,
+    BusDetailsComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

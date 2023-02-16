@@ -1,0 +1,50 @@
+<div>
+  <div class="row">
+    <div class="">
+      <div class="wsk-cp-product">
+        <div class="wsk-cp-img">
+          <img
+            (click)="show()"
+            [src]="src"
+            alt="Product"
+            class="img-responsive"
+          />
+        </div>
+        <div class="wsk-cp-text">
+          <div class="category">
+            <span>{{ title }}</span>
+          </div>
+          <div class="title-product">
+            <h3>{{ name }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  [style.display]="showModal ? 'block' : 'none'"
+  class="modal"
+  id="imagemodal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <bus-details title="{{ title }}"></bus-details>
+</div>
+
+<div *ngIf="showOverlay">
+  <div
+    id="overlay"
+    [ngStyle]="{
+      background: 'rgba(0,0,0,0.5)',
+      position: 'fixed',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      zIndex: 1000
+    }"
+  ></div>
+</div>

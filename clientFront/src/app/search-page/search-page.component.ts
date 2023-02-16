@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 import {NgxMatTimepickerModule, NgxMatTimepickerDirective, NgxMatTimepickerComponent} from "ngx-mat-timepicker";
@@ -11,10 +12,123 @@ import {State} from "../model/statesCitiesStations/states.model";
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
-  styleUrls: ['./search-page.component.css']
+  styleUrls: ['./search-page.component.css'],
 })
 
+
+
 export class SearchPageComponent implements OnInit{
+  showInput: boolean = true;
+  busses = [
+    {
+      bus_name: 'bus1',
+      bus_plate: 'matricule1',
+      rate: 'rate1',
+      mappath:
+        'https://img.freepik.com/free-vector/double-decker-bus-concept-illustration_114360-11580.jpg?w=2000',
+      reviews: {},
+      capacity: 'capacity1',
+    },
+    {
+      bus_name: 'bus2',
+      bus_plate: 'matricule2',
+      rate: 'rate2',
+      mappath:
+        'https://img.freepik.com/free-vector/double-decker-bus-concept-illustration_114360-11580.jpg?w=2000',
+      reviews: {},
+      capacity: 'capacity2',
+    },
+    {
+      bus_name: 'bus3',
+      bus_plate: 'matricule3',
+      rate: 'rate3',
+      mappath:
+        'https://img.freepik.com/free-vector/double-decker-bus-concept-illustration_114360-11580.jpg?w=2000',
+      reviews: {},
+      capacity: 'capacity3',
+    },
+    {
+      bus_name: 'bus3',
+      bus_plate: 'matricule4',
+      rate: 'rate4',
+      mappath:
+        'https://img.freepik.com/free-vector/double-decker-bus-concept-illustration_114360-11580.jpg?w=2000',
+      reviews: {},
+      capacity: 'capacity4',
+    },
+    {
+      bus_name: 'bus3',
+      bus_plate: 'matricule4',
+      rate: 'rate4',
+      mappath:
+        'https://img.freepik.com/free-vector/double-decker-bus-concept-illustration_114360-11580.jpg?w=2000',
+      reviews: {},
+      capacity: 'capacity4',
+    },
+    {
+      bus_name: 'bus3',
+      bus_plate: 'matricule4',
+      rate: 'rate4',
+      mappath:
+        'https://img.freepik.com/free-vector/double-decker-bus-concept-illustration_114360-11580.jpg?w=2000',
+      reviews: {},
+      capacity: 'capacity4',
+    },
+    {
+      bus_name: 'bus3',
+      bus_plate: 'matricule4',
+      rate: 'rate4',
+      mappath:
+        'https://img.freepik.com/free-vector/double-decker-bus-concept-illustration_114360-11580.jpg?w=2000',
+      reviews: {},
+      capacity: 'capacity4',
+    },
+    {
+      bus_name: 'bus3',
+      bus_plate: 'matricule4',
+      rate: 'rate4',
+      mappath:
+        'https://img.freepik.com/free-vector/double-decker-bus-concept-illustration_114360-11580.jpg?w=2000',
+      reviews: {},
+      capacity: 'capacity4',
+    },
+    {
+      bus_name: 'bus3',
+      bus_plate: 'matricule4',
+      rate: 'rate4',
+      mappath:
+        'https://img.freepik.com/free-vector/double-decker-bus-concept-illustration_114360-11580.jpg?w=2000',
+      reviews: {},
+      capacity: 'capacity4',
+    },
+    {
+      bus_name: 'bus3',
+      bus_plate: 'matricule4',
+      rate: 'rate4',
+      mappath:
+        'https://img.freepik.com/free-vector/double-decker-bus-concept-illustration_114360-11580.jpg?w=2000',
+      reviews: {},
+      capacity: 'capacity4',
+    },
+    {
+      bus_name: 'bus3',
+      bus_plate: 'matricule4',
+      rate: 'rate4',
+      mappath:
+        'https://img.freepik.com/free-vector/double-decker-bus-concept-illustration_114360-11580.jpg?w=2000',
+      reviews: {},
+      capacity: 'capacity4',
+    },
+    {
+      bus_name: 'bus3',
+      bus_plate: 'matricule4',
+      rate: 'rate4',
+      mappath:
+        'https://img.freepik.com/free-vector/double-decker-bus-concept-illustration_114360-11580.jpg?w=2000',
+      reviews: {},
+      capacity: 'capacity4',
+    },
+  ];
 
   public searchData:any  ;
   public busTimes: any ;
@@ -99,6 +213,7 @@ export class SearchPageComponent implements OnInit{
       mySet.add(city) ;
     }
     this.endCities = mySet;
+
   }
   updateEndStations(){
     const city = this.form.get("endCity")!.value ;
@@ -119,8 +234,6 @@ export class SearchPageComponent implements OnInit{
       )
     } else {
        console.log("empty" + this.form.valid) ;
-
     }
   }
-
 }
