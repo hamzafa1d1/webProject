@@ -33,6 +33,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductComponent } from './product/product.component';
 import { CommonModule } from '@angular/common';
 import { BusDetailsComponent } from './bus-details/bus-details.component';
+import { StatisticsComponent } from './landingPageStatistics/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { BusDetailsComponent } from './bus-details/bus-details.component';
     ProductComponent,
     FooterComponent,
     BusDetailsComponent,
+    StatisticsComponent,
   ],
   imports: [
     BrowserModule,

@@ -78,12 +78,12 @@
       </form>
     </div>
     <section class="right col">
-      <div class="row">
-        <div class="col col-md-4" *ngFor="let bus of busses">
+      <div class="row" *ngIf="busList">
+        <div class="col col-md-4" *ngFor="let bus of busList">
           <product
-            [src]="bus['mappath']"
-            [name]="bus['bus_name']"
-            [title]="bus['bus_plate']"
+            [src]="bus.imagePath"
+            [name]="bus.time"
+            [title]="bus.busName"
           ></product>
         </div>
       </div>

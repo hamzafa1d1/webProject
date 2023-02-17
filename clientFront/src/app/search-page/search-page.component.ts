@@ -19,6 +19,7 @@ import {State} from "../model/statesCitiesStations/states.model";
 
 export class SearchPageComponent implements OnInit{
   showInput: boolean = true;
+  busList : any ;
   busses = [
     {
       bus_name: 'bus1',
@@ -226,10 +227,12 @@ export class SearchPageComponent implements OnInit{
     if (this.form.valid) {
 
       this.searchService.getSearchData( this.form.value ).subscribe(
-        res => {
-          this.searchData = Array.isArray(res) ? res : Object.values(res);
-          this.busTimes = Array.isArray(res) ? res : Object.keys(res);
-          const map = new Map(Object.entries(res));
+        busList => {
+          // this.searchData = Array.isArray(res) ? res : Object.values(res);
+          // this.busTimes = Array.isArray(res) ? res : Object.keys(res);
+          // const map = new Map(Object.entries(res));
+          console.log(busList) ;
+          this.busList= busList ;
         }
       )
     } else {
