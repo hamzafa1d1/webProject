@@ -5,8 +5,9 @@
   <div class="modal-body" style="padding: 0; border-radius: 32px">
     <div class="row">
       <div class="col col1">
-        <div class="title">
+        <div class="modal-header">
           <h2 class="title">Reviews</h2>
+          <button (click)="hide()" class="close">✖</button>
         </div>
         <div class="left">
           <review></review>
@@ -14,7 +15,7 @@
           <review></review>
         </div>
         <div class="modal-footer">
-          <button (click)="log()" class="btn btn1 btn-primary">
+          <button (click)="show1()" class="btn btn1 btn-primary">
             Write a review
           </button>
         </div>
@@ -84,4 +85,31 @@
       </div>
     </div>
   </div>
+</div>
+
+<div
+  [style.display]="showModal ? 'block' : 'none'"
+  class="modal"
+  id="imagemodal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <write-review></write-review>>
+</div>
+
+<div *ngIf="showOverlay">
+  <div
+    id="overlay"
+    [ngStyle]="{
+      background: 'rgba(0,0,0,0.5)',
+      position: 'fixed',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      zIndex: 1000
+    }"
+  ></div>
 </div>

@@ -9,7 +9,15 @@
       flex-direction: column;
     
     }
-    
+    button.close {
+      width: 30px;
+      font-size: 20px;
+      color: #c0c5cb;
+      align-self: flex-end;
+      background-color: transparent;
+      border: none;
+      margin-bottom: 10px;
+    }
     .scrolling{
         overflow: hidden;
         overflow-y: scroll;
