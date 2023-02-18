@@ -34,6 +34,8 @@ import { ProductComponent } from './product/product.component';
 import { CommonModule } from '@angular/common';
 import { BusDetailsComponent } from './bus-details/bus-details.component';
 import { StatisticsComponent } from './landingPageStatistics/statistics/statistics.component';
+import { ReviewComponent } from './review/review.component';
+import { RatingModule } from 'ngx-bootstrap/rating';
 
 @NgModule({
   declarations: [
@@ -49,9 +51,11 @@ import { StatisticsComponent } from './landingPageStatistics/statistics/statisti
     FooterComponent,
     BusDetailsComponent,
     StatisticsComponent,
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,
+    RatingModule.forRoot(),
     CommonModule,
     AppRoutingModule,
     FormsModule,
