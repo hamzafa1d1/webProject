@@ -8,11 +8,12 @@
     width: 308px;
     background: #ddecff}
     .contact-email{
-      border-radius: 41px; 
+      border-radius: 41px;
       background: #ddecff
     }
     .contact-message{
-      border-radius: 41px; background: #ddecff
+      border-radius: 41px; background: #ddecff ;
+
     }
 .contact-img{
   width: 597px
@@ -22,5 +23,5 @@
   .contact-img{
     width: 300px
   }
-  
+
 }
