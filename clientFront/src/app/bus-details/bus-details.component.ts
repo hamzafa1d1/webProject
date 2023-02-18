@@ -7,4 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class BusDetailsComponent {
   @Input('title') title!: string;
+  log() {
+    console.log('works');
+  }
+  max = 5;
+  rate = 2;
+  isReadonly = false;
 }
