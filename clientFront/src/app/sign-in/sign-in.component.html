@@ -3,12 +3,16 @@
 <div
   class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
 >
+
+
   <div
     class="container modal-content"
     [class.right-panel-active]="!switch1"
     id="container"
   >
+    <div class="cross"> <button (click)="hide()" ><i class="fa fa-circle-xmark"> </i></button></div>
     <div class="form-container sign-up-container modal-body">
+
       <form [formGroup]="registerForm">
         <h1>Create Account</h1>
         <div class="social-container">
@@ -146,3 +150,17 @@
     </div>
   </div>
 </div>
+<div >
+  <div
+    id="overlay"
+    [ngStyle]="{
+      background: 'rgba(0,0,0,0.5)',
+      position: 'fixed',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0
+    }"
+  ></div>
+</div>
+

@@ -1,6 +1,6 @@
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -14,6 +14,12 @@ export class SignInComponent {
   registerForm!: FormGroup;
   loginForm!: FormGroup;
   submitted = false;
+  _childParam!: boolean ;
+
+  @Input() set childParam(value:boolean){
+    this._childParam = value ;
+  }
+  @Output() childParamChange = new EventEmitter<boolean>();
   constructor(fb: FormBuilder) {
     this.registerForm = fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -25,12 +31,10 @@ export class SignInComponent {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
-  show() {
-    this.showModal = true; // Show-Hide Modal Check
-  }
-  //Bootstrap Modal Close event
+
   hide() {
-    this.showModal = false;
+    this._childParam= false ;
+    this.childParamChange.emit(this._childParam);
   }
 
   // convenience getter for easy access to form fields

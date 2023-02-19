@@ -8,9 +8,13 @@ import { Component } from '@angular/core';
 export class NavBarComponent {
   submitted = false;
   showModal!: boolean;
-  showOverlay = false;
+  parentParam= false ;
+  onChildParamChange(newValue:boolean){
+    this.parentParam = newValue ;
+    console.log("changed")
+  }
   show() {
     this.showModal = true;
-    this.showOverlay = true; // Show-Hide Modal Check
+    this.parentParam=true;
   }
 }
