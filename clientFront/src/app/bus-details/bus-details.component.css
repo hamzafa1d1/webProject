@@ -1,0 +1,45 @@
+.left{
+    float: left;
+      max-height: 350px;
+      overflow: hidden;
+      overflow-y: scroll;
+      box-sizing: border-box;
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+    
+    }
+    
+    .scrolling{
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+    
+    .btn1{
+        background: #93A7E7;
+        border-radius: 32px;
+        border-color: #93A7E7;
+        color: white;
+        padding: 10px 50px;
+      width: 50%;
+    
+    
+    }
+    .modal-footer{
+      justify-content: center;
+    }
+    
+    h2.title{
+        font-size: 30px;
+        float: left;
+    }
+    .title{margin: 20px;}
+    .detail{
+      font-size: 17px; padding-left: 14px;
+      margin: 0;
+    }
+    .detail{
+      font-size: 17px; padding-left: 14px;
+      ;margin: 0;
+    }
+    

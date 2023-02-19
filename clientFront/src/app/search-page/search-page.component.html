@@ -7,8 +7,11 @@
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <mat-form-field>
           <mat-label>Start state</mat-label>
-          <mat-select formControlName="startState"  (selectionChange)="updateStartCities()"  >
-            <mat-option *ngFor="let choice of startStates" [value]="choice" >
+          <mat-select
+            formControlName="startState"
+            (selectionChange)="updateStartCities()"
+          >
+            <mat-option *ngFor="let choice of startStates" [value]="choice">
               {{ choice }}
             </mat-option>
           </mat-select>
@@ -16,7 +19,10 @@
         <br />
         <mat-form-field>
           <mat-label>Start city</mat-label>
-          <mat-select formControlName="startCity" (selectionChange)="updateStartStations()">
+          <mat-select
+            formControlName="startCity"
+            (selectionChange)="updateStartStations()"
+          >
             <mat-option *ngFor="let choice of startCities" [value]="choice">
               {{ choice }}
             </mat-option>
@@ -34,7 +40,10 @@
         <br />
         <mat-form-field>
           <mat-label>Ending State</mat-label>
-          <mat-select formControlName="endState" (selectionChange)="updateEndCities()">
+          <mat-select
+            formControlName="endState"
+            (selectionChange)="updateEndCities()"
+          >
             <mat-option *ngFor="let choice of endStates" [value]="choice">
               {{ choice }}
             </mat-option>
@@ -43,7 +52,10 @@
         <br />
         <mat-form-field>
           <mat-label>Ending city</mat-label>
-          <mat-select formControlName="endCity" (selectionChange)="updateEndStations()">
+          <mat-select
+            formControlName="endCity"
+            (selectionChange)="updateEndStations()"
+          >
             <mat-option *ngFor="let choice of endCities" [value]="choice">
               {{ choice }}
             </mat-option>
@@ -58,7 +70,7 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <br>
+        <br />
         <mat-form-field>
           <input
             matInput
@@ -88,8 +100,8 @@
         </div>
       </div>
     </section>
-
   </div>
 </div>
 
 <app-footer></app-footer>
+<product></product>
