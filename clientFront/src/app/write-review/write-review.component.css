@@ -39,6 +39,9 @@
       color: white;
       box-shadow: 0px 6px 18px -5px #4B56D2;
     }
+    .contact-message{
+      border-radius: 41px; background: #ddecff
+    }
   .rating{
     margin-top: 10px;
   }
@@ -47,4 +50,7 @@
   }
   .submit:hover{
     background-color: #2e3583;
+  }
+  .close{
+    float: right;
   }

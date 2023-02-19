@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 export class ReviewComponent {
   max = 5;
   rate = 2;
-  isReadonly = false;
+  isReadonly = true;
 }

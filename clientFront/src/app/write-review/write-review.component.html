@@ -1,7 +1,14 @@
 <div class="container modal-body">
   <div class="cookiesContent" id="cookiesPopup">
+    <button (click)="hide()" class="close">✖</button>
     <h2>Write your Review</h2>
-    <textarea name="" id="" cols="30" rows="10"></textarea>
+
+    <textarea
+      class="form-control contact-message"
+      id="message"
+      name="message"
+      rows="6"
+    ></textarea>
     <rating
       class="rating"
       style="color: #0275d8; font-size: 40px"
