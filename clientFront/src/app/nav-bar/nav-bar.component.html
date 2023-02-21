@@ -31,7 +31,7 @@
       <div class="collapse navbar-collapse" id="navcol-2">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link active" routerLink="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#our-service">Our service</a>
@@ -55,6 +55,7 @@
   </nav>
 </div>
 <div
+  *ngIf="parentParam"
   [style.display]="showModal ? 'block' : 'none'"
   class="modal"
   id="imagemodal"
@@ -63,20 +64,5 @@
   aria-labelledby="myModalLabel"
   aria-hidden="true"
 >
-  <sign-in></sign-in>
-</div>
-
-<div *ngIf="showOverlay">
-  <div
-    id="overlay"
-    [ngStyle]="{
-      background: 'rgba(0,0,0,0.5)',
-      position: 'fixed',
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-      zIndex: 1000
-    }"
-  ></div>
+  <sign-in [childParam]="parentParam" (childParamChange)="onChildParamChange($event)"></sign-in>
 </div>

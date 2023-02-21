@@ -1,9 +1,13 @@
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import {
+  SocialAuthService,
+  FacebookLoginProvider,
+  SocialUser,
+} from 'angularx-social-login';
 @Component({
   selector: 'sign-in',
   templateUrl: './sign-in.component.html',
@@ -14,23 +18,40 @@ export class SignInComponent {
   registerForm!: FormGroup;
   loginForm!: FormGroup;
   submitted = false;
-  constructor(fb: FormBuilder) {
-    this.registerForm = fb.group({
+  _childParam!: boolean ;
+  socialUser!: SocialUser;
+  isLoggedin?: boolean = undefined;
+  @Input() set childParam(value:boolean){
+    this._childParam = value ;
+  }
+  @Output() childParamChange = new EventEmitter<boolean>();
+  constructor(formBuilder: FormBuilder , private socialAuthService: SocialAuthService) {
+    this.registerForm = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       name: ['', [Validators.required]],
     });
-    this.loginForm = fb.group({
+    this.loginForm = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
+    this.socialAuthService.authState.subscribe((user) => {
+      this.socialUser = user;
+      this.isLoggedin = user != null;
+    });
   }
-  show() {
-    this.showModal = true; // Show-Hide Modal Check
+  loginWithFacebook(): void {
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
-  //Bootstrap Modal Close event
+  signOut(): void {
+    this.socialAuthService.signOut();
+  }
+
+
+
   hide() {
-    this.showModal = false;
+    this._childParam= false ;
+    this.childParamChange.emit(this._childParam);
   }
 
   // convenience getter for easy access to form fields
