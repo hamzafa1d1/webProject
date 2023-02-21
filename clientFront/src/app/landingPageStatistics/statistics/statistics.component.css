@@ -9,7 +9,7 @@
   height: 30%;
   padding : 50px ;
   /* Rectangle 1 */
-  /*background: linear-gradient(89.87deg, #82C3EC -36.43%, #4B56D2 100.95%);*/
+ background: linear-gradient(89.87deg, #82C3EC -36.43%, #4B56D2 100.95%);
   margin: 0;
   border-radius: 0;
   /*background: linear-gradient(62.98deg, rgba(75, 86, 210, 0.5) -0.57%, #82C3EC 74.33%);*/
@@ -17,17 +17,22 @@
 }
 
 
+
 .container-counter {
   padding: 0;
   margin: 0;
   max-width: 100%;
   border-radius: 0;
+  background-color: white;
 
 }
 
 .counter-section i {
   display: block;
-  margin: 0 0 10px
+  margin: 0 0 10px;
+
+
+  
 }
 
 .counter-section span.counter {
@@ -36,18 +41,22 @@
   line-height: 60px;
   display: block;
   font-family: "Oswald", sans-serif;
-  letter-spacing: 2px
+  letter-spacing: 2px;
+  color: white;
+
 }
 
 .counter-title {
   font-size: 12px;
   letter-spacing: 2px;
-  text-transform: uppercase
+  text-transform: uppercase;
+  color:white
 }
 
 .counter-icon {
   top: 25px;
-  position: relative
+  position: relative;
+  background-color: white;
 }
 
 .counter-style2 .counter-title {
@@ -69,11 +78,13 @@
 
 .counter-subheadline span {
   float: right;
+  
 }
 
 .medium-icon {
   font-size: 40px !important;
   margin-bottom: 15px !important;
+  color: white;
 }
 
 .container {

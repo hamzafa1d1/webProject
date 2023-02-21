@@ -1,11 +1,100 @@
-<!-- Creates the bootstrap modal where the image will appear -->
+<div class="container container2 modal-lg">
+  <div class="modal-body container" style="padding: 0; border-radius: 32px">
+    <div class="row">
+      <div class="col col1">
+        <div class="modal-header">
+          <h2 class="title">Reviews</h2>
+          <button (click)="hide()" class="close">✖</button>
+        </div>
+        <div class="left">
+          <review></review>
+          <review></review>
+          <review></review>
+        </div>
+        <div class="modal-footer">
+          <button (click)="show1()" class="btn btn1 btn-primary">
+            Write a review
+          </button>
+        </div>
+      </div>
+
+      <div class="col">
+        <iframe
+          frameborder="0"
+          src="https://i.pcmag.com/imagery/articles/01IB0rgNa4lGMBlmLyi0VP6-6.fit_lim.size_1050x.png"
+          width="100%"
+          height="100%"
+          class="map"
+        ></iframe>
+        <div
+          style="
+            height: 97px;
+            background: #c6cccb;
+            border-bottom-right-radius: 32px;
+          "
+        >
+          <div class="row">
+            <div class="col">
+              <h1 class="detail detail1">Bus Name : 752</h1>
+              <h1 class="detail">Bus plate : 55555555</h1>
+              <h1 class="detail">Time: 12:12</h1>
+            </div>
+            <div class="col">
+              <p
+                class="text-right"
+                style="padding-right: 14px; padding-top: 8px"
+              >
+                Capacity : 30
+              </p>
+              <div class="row">
+                <div class="col2 col">
+                  <p class="text-left">Total Rate :</p>
+                </div>
+                <div class="col col2">
+                  <div style="margin: 0" class="text-left star-wrapper">
+                    <rating
+                      class="rating"
+                      [(ngModel)]="rate"
+                      [max]="max"
+                      [readonly]="isReadonly"
+                    >
+                    </rating>
+                  </div>
+                </div>
+              </div>
+              <script src="https://kit.fontawesome.com/5ea815c1d0.js"></script>
+              <div class="wraper"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div
-  class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+  [style.display]="showModal ? 'block' : 'none'"
+  class="modal"
+  id="imagemodal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
 >
-  <div class="container modal-content" id="container">
-    <div class="form-container modal-body"></div>
-    <h1>test yal 5ou</h1>
-    <h1>{{ title }}</h1>
-  </div>
+  <write-review></write-review>>
+</div>
+
+<div *ngIf="showOverlay">
+  <div
+    id="overlay"
+    [ngStyle]="{
+      background: 'rgba(0,0,0,0.5)',
+      position: 'fixed',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      zIndex: 1000
+    }"
+  ></div>
 </div>
