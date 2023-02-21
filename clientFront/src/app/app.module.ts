@@ -34,9 +34,13 @@ import { ProductComponent } from './product/product.component';
 import { CommonModule } from '@angular/common';
 import { BusDetailsComponent } from './bus-details/bus-details.component';
 import { StatisticsComponent } from './landingPageStatistics/statistics/statistics.component';
+
 import { ReviewComponent } from './review/review.component';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { WriteReviewComponent } from './write-review/write-review.component';
+
+import{FacebookModule} from "ngx-facebook";
+import {FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from "angularx-social-login";
 
 @NgModule({
   declarations: [
@@ -56,6 +60,7 @@ import { WriteReviewComponent } from './write-review/write-review.component';
     WriteReviewComponent,
   ],
   imports: [
+    SocialLoginModule,
     BrowserModule,
     RatingModule.forRoot(),
     CommonModule,
@@ -80,9 +85,23 @@ import { WriteReviewComponent } from './write-review/write-review.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
+    FacebookModule.forRoot(),
   ],
 
-  providers: [],
+  providers: [
+    {
+      provide:'SocialAuthServiceConfig' ,
+      useValue: {
+        autoLogin : false ,
+        providers: [
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('677480357395708'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
