@@ -34,6 +34,8 @@ import { ProductComponent } from './product/product.component';
 import { CommonModule } from '@angular/common';
 import { BusDetailsComponent } from './bus-details/bus-details.component';
 import { StatisticsComponent } from './landingPageStatistics/statistics/statistics.component';
+import{FacebookModule} from "ngx-facebook";
+import {FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from "angularx-social-login";
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { StatisticsComponent } from './landingPageStatistics/statistics/statisti
     StatisticsComponent,
   ],
   imports: [
+    SocialLoginModule,
     BrowserModule,
     CommonModule,
     AppRoutingModule,
@@ -74,9 +77,23 @@ import { StatisticsComponent } from './landingPageStatistics/statistics/statisti
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
+    FacebookModule.forRoot(),
   ],
 
-  providers: [],
+  providers: [
+    {
+      provide:'SocialAuthServiceConfig' ,
+      useValue: {
+        autoLogin : false ,
+        providers: [
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('677480357395708'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

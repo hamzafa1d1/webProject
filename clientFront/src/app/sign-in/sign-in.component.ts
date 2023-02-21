@@ -3,7 +3,11 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import {
+  SocialAuthService,
+  FacebookLoginProvider,
+  SocialUser,
+} from 'angularx-social-login';
 @Component({
   selector: 'sign-in',
   templateUrl: './sign-in.component.html',
@@ -15,22 +19,35 @@ export class SignInComponent {
   loginForm!: FormGroup;
   submitted = false;
   _childParam!: boolean ;
-
+  socialUser!: SocialUser;
+  isLoggedin?: boolean = undefined;
   @Input() set childParam(value:boolean){
     this._childParam = value ;
   }
   @Output() childParamChange = new EventEmitter<boolean>();
-  constructor(fb: FormBuilder) {
-    this.registerForm = fb.group({
+  constructor(formBuilder: FormBuilder , private socialAuthService: SocialAuthService) {
+    this.registerForm = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       name: ['', [Validators.required]],
     });
-    this.loginForm = fb.group({
+    this.loginForm = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
+    this.socialAuthService.authState.subscribe((user) => {
+      this.socialUser = user;
+      this.isLoggedin = user != null;
+    });
   }
+  loginWithFacebook(): void {
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+  signOut(): void {
+    this.socialAuthService.signOut();
+  }
+
+
 
   hide() {
     this._childParam= false ;

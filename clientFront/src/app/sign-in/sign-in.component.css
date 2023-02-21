@@ -4,10 +4,10 @@
 	box-sizing: border-box;
 }
 .cross{
+  all : initial ;
   z-index: 2000;
   border-radius: 100px;
-  width: 10%;
-
+  color: #ff4d4d;
 }
 
 body {

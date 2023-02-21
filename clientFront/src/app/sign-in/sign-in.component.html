@@ -10,18 +10,18 @@
     [class.right-panel-active]="!switch1"
     id="container"
   >
-    <div class="cross"> <button (click)="hide()" ><i class="fa fa-circle-xmark"> </i></button></div>
+    <div class="cross"> <a (click)="hide()" ><i class="fa fa-circle-xmark"> </i></a></div>
     <div class="form-container sign-up-container modal-body">
 
       <form [formGroup]="registerForm">
         <h1>Create Account</h1>
         <div class="social-container">
-          <a href="#"
-            ><fa-icon [icon]="faFacebook" class="social-icon"></fa-icon
+          <a (click)="loginWithFacebook()"
+          ><fa-icon [icon]="faFacebook" class="social-icon"></fa-icon
           ></a>
-          <a href="#" class="social"
-            ><fa-icon [icon]="faGoogle" size="xs"></fa-icon
-          ></a>
+<!--          <a (click)="loginWithFacebook()" class="social"-->
+<!--            ><fa-icon [icon]="faGoogle" size="xs"></fa-icon-->
+<!--          ></a>-->
         </div>
         <span>or use your email for registration</span>
         <input
@@ -75,10 +75,10 @@
       <form [formGroup]="loginForm">
         <h1>Sign in</h1>
         <div class="social-container">
-          <a href="#" class="social"
+          <a (click)="loginWithFacebook()" class="social"
             ><fa-icon [icon]="faFacebook" class="social-icon"></fa-icon
           ></a>
-          <a href="#" class="social"><fa-icon [icon]="faGoogle"></fa-icon></a>
+<!--          <a href="#" class="social"><fa-icon [icon]="faGoogle"></fa-icon></a>-->
         </div>
         <span>or use your account</span>
         <input
