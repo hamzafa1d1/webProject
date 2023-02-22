@@ -1,23 +1,35 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SocialAuthService, SocialUser} from "angularx-social-login";
+import {FacebookAccountService} from "../services/facebookAccountServices/facebook-account.service";
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
 })
-export class NavBarComponent {
-  constructor(private authService: SocialAuthService) {
-    this.authService.authState.subscribe((user: SocialUser | null) => {
-      if (user != null) {
-        // The user is logged in
-        console.log('Logged in as: ' + user.name);
-      } else {
-        // The user is not logged in
-        console.log('Not logged in');
+export class NavBarComponent  implements OnInit {
+  loggedIn : boolean| undefined ;
+  loaded= false ;
+   ngOnInit () {
+    console.log("hello")
 
-      }
-    })
+     if((localStorage.getItem('currentUser'))) {
+       const currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '');
+       this.loggedIn = true;
+       console.log(Object.keys(currentUser))
+     }
+     else{
+       this.loggedIn = false;
+
+     }
+     this.loaded = true;
+
+  }
+
+  constructor(private authService: SocialAuthService ,  private facebookAccountService : FacebookAccountService) {
+    let currentUser = this.facebookAccountService.getUser() ;
+      console.log("user") ;
+      console.log(currentUser)
   }
 
   submitted = false;
@@ -26,6 +38,10 @@ export class NavBarComponent {
   onChildParamChange(newValue:boolean){
     this.parentParam = newValue ;
     console.log("changed")
+  }
+  signOut(): void {
+    // this.authService.signOut();
+    this.facebookAccountService.signOut()
   }
   show() {
     this.showModal = true;

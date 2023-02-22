@@ -43,7 +43,17 @@
             <a class="nav-link" href="#contact-us">Contact us</a>
           </li>
         </ul>
-        <button
+        <div class="avatar" *ngIf="loggedIn && loaded">
+          <img src="https://placekitten.com/400/400">
+        </div>
+        <button *ngIf="loggedIn && loaded"
+                (click)="signOut()"
+                class="btn btn-primary ms-md-2 signin"
+                type="button"
+        >
+          SIGN out
+        </button>
+        <button *ngIf="!loggedIn && loaded"
           (click)="show()"
           class="btn btn-primary ms-md-2 signin"
           type="button"

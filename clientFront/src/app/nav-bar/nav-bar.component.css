@@ -3,8 +3,84 @@
 
     /* Rectangle 1 */
     background: linear-gradient(62.98deg, rgba(75, 86, 210, 0.5) -0.57%, #82C3EC 74.33%);
-  
+
   }
+body {
+  align-items: center;
+  background: #222;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+.avatar {
+  margin-left : 50px;
+  height: 50px;
+  position: relative;
+  width: 50px;
+}
+
+.avatar img {
+  border-radius: 9999px;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+@keyframes cycle-colors {
+  0% { border-color: hsl(0, 100%, 50%); }
+  25% { border-color: hsl(90, 100%, 50%); }
+  50% { border-color: hsl(180, 100%, 50%); }
+  75% { border-color: hsl(270, 100%, 50%); }
+  100% { border-color: hsl(360, 100%, 50%); }
+}
+
+@keyframes pulse {
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.avatar::before,
+.avatar::after {
+  animation: pulse 2s linear infinite;
+  border: #fff solid 8px;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  content: ' ';
+  height: 140%;
+  left: -20%;
+  opacity: .6;
+  position: absolute;
+  top: -20%;
+  transform: scale(0.714);
+  width: 140%;
+  z-index: 1;
+}
+
+.avatar::after {
+  animation-delay: 1s;
+}
+
+.avatar:hover img {
+  content: url('http://s.blixt.org/hypnotoad.jpg');
+}
+
+.avatar:hover::before,
+.avatar:hover::after {
+  animation: pulse 1s linear infinite, cycle-colors 6s linear infinite;
+}
+
+.avatar:hover::after {
+  animation-delay: .5s;
+}
   .pur-nav{
     width: 100%;
      height: 82px
@@ -17,7 +93,7 @@
     background: #4b56d2;
     font-size: 14px;
   }
-  
+
   .nav-item{
     font-family: Montserrat, sans-serif;
     color: #ffffff}
@@ -33,49 +109,48 @@
         height: calc(var(--bs-icon-size) * 2);
         color: var(--bs-primary);
       }
-      
+
       .bs-icon-xs {
         --bs-icon-size: 1rem;
         width: calc(var(--bs-icon-size) * 1.5);
         height: calc(var(--bs-icon-size) * 1.5);
       }
-      
+
       .bs-icon-sm {
         --bs-icon-size: 1rem;
       }
-      
+
       .bs-icon-md {
         --bs-icon-size: 1.5rem;
       }
-      
+
       .bs-icon-lg {
         --bs-icon-size: 2rem;
       }
-      
+
       .bs-icon-xl {
         --bs-icon-size: 2.5rem;
       }
-      
+
       .bs-icon.bs-icon-primary {
         color: var(--bs-white);
         background: var(--bs-primary);
       }
-      
+
       .bs-icon.bs-icon-primary-light {
         color: var(--bs-primary);
         background: rgba(var(--bs-primary-rgb), .2);
       }
-      
+
       .bs-icon.bs-icon-semi-white {
         color: var(--bs-primary);
         background: rgba(255, 255, 255, .5);
       }
-      
+
       .bs-icon.bs-icon-rounded {
         border-radius: .5rem;
       }
-      
+
       .bs-icon.bs-icon-circle {
         border-radius: 50%;
       }
-      

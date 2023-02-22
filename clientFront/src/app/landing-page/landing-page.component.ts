@@ -12,7 +12,7 @@ export class LandingPageComponent {
   registerForm!: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder ) {}
 
   onChildParamChange(newValue:boolean){
     this.parentParam = newValue ;
