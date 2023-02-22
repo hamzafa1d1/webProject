@@ -35,16 +35,29 @@ signOut(): void {
 
 }
  public getUser() : FacebookUser {
+
   const currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '');
-  return new FacebookUser(
-    currentUser.id ,
-    currentUser.name,
-    currentUser.email ,
-    currentUser.photoUrl ,
-    currentUser.firstName,
-    currentUser.lastName,
-    currentUser.authToken
+  if(!currentUser.isEmpty()){
+    return new FacebookUser(
+      currentUser.id ,
+      currentUser.name,
+      currentUser.email ,
+      currentUser.photoUrl ,
+      currentUser.firstName,
+      currentUser.lastName,
+      currentUser.authToken
+    )
+  }
+  else return new FacebookUser(
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
   )
+
 
 }
 }

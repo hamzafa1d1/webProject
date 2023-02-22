@@ -27,9 +27,9 @@ export class NavBarComponent  implements OnInit {
   }
 
   constructor(private authService: SocialAuthService ,  private facebookAccountService : FacebookAccountService) {
-    let currentUser = this.facebookAccountService.getUser() ;
-      console.log("user") ;
-      console.log(currentUser)
+    // let currentUser = this.facebookAccountService.getUser() ;
+    //   console.log("user") ;
+    //   console.log(currentUser)
   }
 
   submitted = false;
