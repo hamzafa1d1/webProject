@@ -19,6 +19,10 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
 
     public AuthenticationResponse register(RegistrationRequest request) {
+        boolean userExists = repository.findByEmail(request.getEmail()).isPresent();
+        if(userExists){
+            throw new IllegalStateException("Email already exists");
+        }
         var user = AppUser.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
@@ -34,6 +38,10 @@ public class AuthenticationService {
                 .build();
     }
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
+        boolean userExists = repository.findByEmail(request.getEmail()).isPresent();
+        if(!userExists){
+            throw new IllegalStateException("User does not exist");
+        }
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
