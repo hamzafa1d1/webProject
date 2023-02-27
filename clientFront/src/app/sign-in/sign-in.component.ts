@@ -84,7 +84,7 @@ export class SignInComponent {
       this.signUpSerivce.signUp(this.registerForm.value).subscribe(
         res =>{
           console.log(res) ;
-
+          localStorage.setItem("token" , Object.values(res).toString()) ;
       }
       )
     }
