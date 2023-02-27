@@ -15,7 +15,11 @@ export class WriteReviewComponent {
   constructor(
     private busDetailsComponent: BusDetailsComponent,
     formBuilder: FormBuilder,
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> 0c95da1d7d0dc792d5bdee1ff11ff24327257ba7
   ) {
     this.submitreview = formBuilder.group({
       review: ['', Validators.required],
