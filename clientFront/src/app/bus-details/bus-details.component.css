@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+body{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+}
 .left{
     float: left;
       max-height: 350px;
@@ -49,6 +56,7 @@
     .detail{
       font-size: 17px; padding-left: 14px;
       ;margin: 0;
+      font-family: 'Barlow Semi Condensed', sans-serif;
     }
     ::-webkit-scrollbar-track
     {
@@ -85,13 +93,7 @@
     }
     .col2{padding:0;}
 
-@media screen and (max-width:900px) {
-  .rating{
-    color: #0275d8; font-size: 20px;
-    margin: 0;
 
-  }
-}
 .left{
     float: left;
       max-height: 350px;
