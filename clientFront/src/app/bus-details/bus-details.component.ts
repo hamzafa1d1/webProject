@@ -34,7 +34,7 @@ export class BusDetailsComponent {
   bus1 = [
     {
       name: 'John Smith',
-      imagePath: 'https://randomuser.me/api/portraits/men/1.jpg',
+      imagePath: '../assets/img/profile.png',
       rate: 5,
       title: 'Great bus service!',
       review:
@@ -43,7 +43,7 @@ export class BusDetailsComponent {
     {
       name: 'David Lee',
       rate: 3,
-      imagePath: 'https://randomuser.me/api/portraits/women/2.jpg',
+      imagePath: '../assets/img/profile.png',
 
       title: 'Average service',
       review:
@@ -52,7 +52,7 @@ export class BusDetailsComponent {
     {
       name: 'Emily Chen',
       rate: 5,
-      imagePath: 'https://randomuser.me/api/portraits/men/3.jpg',
+      imagePath: '../assets/img/profile.png',
       title: 'Excellent bus service!',
       review:
         'I was really impressed with this bus service! The bus was modern and comfortable, the driver was knowledgeable and helpful, and the journey was smooth and efficient. I would definitely use this service again and recommend it to others.',
@@ -61,9 +61,19 @@ export class BusDetailsComponent {
       name: 'Mark Taylor',
       rate: 2,
       title: 'Disappointing experience',
-      imagePath: 'https://randomuser.me/api/portraits/women/4.jpg',
+      imagePath: '../assets/img/profile.png',
       review:
         'I had a disappointing experience with this bus service. The bus was old and uncomfortable, the driver was unfriendly and unhelpful, and the journey was delayed due to mechanical issues. I would not recommend this service.',
     },
   ];
+  totalrate() {
+    let s: number;
+    s = 0;
+    for (let num of this.bus1) {
+      s += num['rate'];
+    }
+    s = s / this.bus1.length;
+    console.log(Math.round(s));
+    return Math.round(s);
+  }
 }
