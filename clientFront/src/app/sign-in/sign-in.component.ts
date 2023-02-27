@@ -1,8 +1,9 @@
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { Component, Input } from '@angular/core';
-
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import{Location} from '@angular/common'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import{SignUpService} from 'src/app/services/Singup/sign-up.service'
 
 @Component({
   selector: 'sign-in',
@@ -14,23 +15,32 @@ export class SignInComponent {
   registerForm!: FormGroup;
   loginForm!: FormGroup;
   submitted = false;
-  constructor(fb: FormBuilder) {
-    this.registerForm = fb.group({
+  _childParam!: boolean ;
+
+  isLoggedin?: boolean = undefined;
+  @Input() set childParam(value:boolean){
+    this._childParam = value ;
+  }
+  @Output() childParamChange = new EventEmitter<boolean>();
+  constructor(formBuilder: FormBuilder  , private  location: Location , private signUpSerivce : SignUpService) {
+    this.registerForm = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      name: ['', [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
     });
-    this.loginForm = fb.group({
+    this.loginForm = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
+
   }
-  show() {
-    this.showModal = true; // Show-Hide Modal Check
-  }
-  //Bootstrap Modal Close event
+
+
+
   hide() {
-    this.showModal = false;
+    this._childParam= false ;
+    this.childParamChange.emit(this._childParam);
   }
 
   // convenience getter for easy access to form fields
@@ -40,8 +50,11 @@ export class SignInComponent {
   get password() {
     return this.registerForm.get('password');
   }
-  get name() {
-    return this.registerForm.get('name');
+  get FirstName() {
+    return this.registerForm.get('firstName');
+  }
+  get LastName() {
+    return this.registerForm.get('lastName');
   }
   get loginemail() {
     return this.loginForm.get('email');
@@ -66,4 +79,14 @@ export class SignInComponent {
   }
   faFacebook = faFacebook;
   faGoogle = faGoogle;
+  Registration() {
+    if(this.registerForm.valid){
+      this.signUpSerivce.signUp(this.registerForm.value).subscribe(
+        res =>{
+          console.log(res) ;
+
+      }
+      )
+    }
+  }
 }

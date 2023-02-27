@@ -8,14 +8,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LandingPageComponent {
   showModal!: boolean;
+  parentParam = false ;
   registerForm!: FormGroup;
   submitted = false;
-  showOverlay = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder ) {}
+
+  onChildParamChange(newValue:boolean){
+    this.parentParam = newValue ;
+    console.log("changed")
+  }
   show() {
+    this.parentParam=true;
     this.showModal = true;
-    this.showOverlay = true; // Show-Hide Modal Check
+
   }
   //Bootstrap Modal Close event
   hide() {

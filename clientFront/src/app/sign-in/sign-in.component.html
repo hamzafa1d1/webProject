@@ -3,33 +3,48 @@
 <div
   class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
 >
+
+
   <div
     class="container modal-content"
     [class.right-panel-active]="!switch1"
     id="container"
   >
+    <div class="cross"> <a (click)="hide()" ><i class="fa fa-circle-xmark"> </i></a></div>
     <div class="form-container sign-up-container modal-body">
-      <form [formGroup]="registerForm">
+
+      <form [formGroup]="registerForm" (ngSubmit)="Registration()" >
         <h1>Create Account</h1>
-        <div class="social-container">
-          <a href="#"
-            ><fa-icon [icon]="faFacebook" class="social-icon"></fa-icon
-          ></a>
-          <a href="#" class="social"
-            ><fa-icon [icon]="faGoogle" size="xs"></fa-icon
-          ></a>
-        </div>
+<!--        <div class="social-container">-->
+<!--          <a (click)="loginWithFacebook()"-->
+<!--          ><fa-icon [icon]="faFacebook" class="social-icon"></fa-icon-->
+<!--          ></a>-->
+<!--&lt;!&ndash;          <a (click)="loginWithFacebook()" class="social"&ndash;&gt;-->
+<!--&lt;!&ndash;            ><fa-icon [icon]="faGoogle" size="xs"></fa-icon&ndash;&gt;-->
+<!--&lt;!&ndash;          ></a>&ndash;&gt;-->
+<!--        </div>-->
         <span>or use your email for registration</span>
         <input
           type="text"
-          formControlName="name"
-          placeholder="Name"
+          formControlName="firstName"
+          placeholder="First Name"
           [ngClass]="{
-            'is-invalid': name?.touched && name?.invalid
+            'is-invalid': FirstName?.touched && FirstName?.invalid
           }"
         />
-        <div *ngIf="name?.touched && name?.invalid" class="invalid-feedback">
-          <div *ngIf="name?.errors?.['required']">name is required</div>
+        <div *ngIf="FirstName?.touched && FirstName?.invalid" class="invalid-feedback">
+          <div *ngIf="FirstName?.errors?.['required']">First Name is required</div>
+        </div>
+        <input
+          type="text"
+          formControlName="lastName"
+          placeholder="Last Name"
+          [ngClass]="{
+            'is-invalid': LastName?.touched && LastName?.invalid
+          }"
+        />
+        <div *ngIf="LastName?.touched && LastName?.invalid" class="invalid-feedback">
+          <div *ngIf="LastName?.errors?.['required']">Last Name is required</div>
         </div>
 
         <input
@@ -70,12 +85,12 @@
     <div class="form-container sign-in-container">
       <form [formGroup]="loginForm">
         <h1>Sign in</h1>
-        <div class="social-container">
-          <a href="#" class="social"
-            ><fa-icon [icon]="faFacebook" class="social-icon"></fa-icon
-          ></a>
-          <a href="#" class="social"><fa-icon [icon]="faGoogle"></fa-icon></a>
-        </div>
+<!--        <div class="social-container">-->
+<!--          <a (click)="loginWithFacebook()" class="social"-->
+<!--            ><fa-icon [icon]="faFacebook" class="social-icon"></fa-icon-->
+<!--          ></a>-->
+<!--&lt;!&ndash;          <a href="#" class="social"><fa-icon [icon]="faGoogle"></fa-icon></a>&ndash;&gt;-->
+<!--        </div>-->
         <span>or use your account</span>
         <input
           type="email"
@@ -146,3 +161,17 @@
     </div>
   </div>
 </div>
+<div >
+  <div
+    id="overlay"
+    [ngStyle]="{
+      background: 'rgba(0,0,0,0.5)',
+      position: 'fixed',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0
+    }"
+  ></div>
+</div>
+

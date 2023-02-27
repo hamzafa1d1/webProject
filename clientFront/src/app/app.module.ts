@@ -34,8 +34,12 @@ import { ProductComponent } from './product/product.component';
 import { CommonModule } from '@angular/common';
 import { BusDetailsComponent } from './bus-details/bus-details.component';
 import { StatisticsComponent } from './landingPageStatistics/statistics/statistics.component';
+
 import { ReviewComponent } from './review/review.component';
 import { RatingModule } from 'ngx-bootstrap/rating';
+import { WriteReviewComponent } from './write-review/write-review.component';
+
+
 
 @NgModule({
   declarations: [
@@ -52,8 +56,10 @@ import { RatingModule } from 'ngx-bootstrap/rating';
     BusDetailsComponent,
     StatisticsComponent,
     ReviewComponent,
+    WriteReviewComponent,
   ],
   imports: [
+
     BrowserModule,
     RatingModule.forRoot(),
     CommonModule,
@@ -78,6 +84,7 @@ import { RatingModule } from 'ngx-bootstrap/rating';
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
+
   ],
 
   providers: [],
