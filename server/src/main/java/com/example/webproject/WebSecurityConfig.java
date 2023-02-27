@@ -13,6 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -25,6 +26,10 @@ public class WebSecurityConfig {
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .authorizeHttpRequests()
+                .requestMatchers("/stations-cities-states","/searchFormData","/contact-us")
+                .permitAll()
+                .and()
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
@@ -32,6 +37,7 @@ public class WebSecurityConfig {
                 .permitAll()
                 .anyRequest()
                 .authenticated()
+
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -45,4 +51,5 @@ public class WebSecurityConfig {
 
         return http.build();
     }
+
 }
