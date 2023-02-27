@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'review',
@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./review.component.css'],
 })
 export class ReviewComponent {
+  @Input('name_user') name!: string;
+  @Input('src_user') src!: string;
+  @Input('title_user') title!: string;
+  @Input('review_user') review!: string;
+  @Input('rate_user') rate!: number;
   max = 5;
-  rate = 2;
+
   isReadonly = true;
 }

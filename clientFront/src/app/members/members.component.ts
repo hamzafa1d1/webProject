@@ -8,4 +8,8 @@ import { Component, Input } from '@angular/core';
 export class MembersComponent {
   @Input('src')
   src!: String;
+  @Input('fb')
+  fb!: String;
+  @Input('in')
+  in!: String;
 }

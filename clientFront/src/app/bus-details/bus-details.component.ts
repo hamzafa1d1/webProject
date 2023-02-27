@@ -16,7 +16,7 @@ export class BusDetailsComponent {
   }
   max = 5;
   rate = 2;
-  isReadonly = false;
+  isReadonly = true;
   showModal!: boolean;
   showOverlay = false;
   hide() {
@@ -27,4 +27,43 @@ export class BusDetailsComponent {
     this.showModal = true;
     this.showOverlay = true; // Show-Hide Modal Check
   }
+  @Input('bus_name') bus_name!: string;
+  @Input('bus_plate') bus_plate!: string;
+  @Input('time') time!: string;
+
+  bus1 = [
+    {
+      name: 'John Smith',
+      imagePath: 'https://randomuser.me/api/portraits/men/1.jpg',
+      rate: 5,
+      title: 'Great bus service!',
+      review:
+        'I recently used this bus service and I was really impressed! The bus was clean and comfortable, the driver was friendly and professional, and the journey was smooth and hassle-free. I would definitely use this service again and highly recommend it to others.',
+    },
+    {
+      name: 'David Lee',
+      rate: 3,
+      imagePath: 'https://randomuser.me/api/portraits/women/2.jpg',
+
+      title: 'Average service',
+      review:
+        "The bus was clean and the driver was friendly, but there were some issues with the service. The bus was quite crowded and there wasn't enough space for everyone's luggage. Additionally, the journey took longer than expected due to traffic. Overall, it was an average experience.",
+    },
+    {
+      name: 'Emily Chen',
+      rate: 5,
+      imagePath: 'https://randomuser.me/api/portraits/men/3.jpg',
+      title: 'Excellent bus service!',
+      review:
+        'I was really impressed with this bus service! The bus was modern and comfortable, the driver was knowledgeable and helpful, and the journey was smooth and efficient. I would definitely use this service again and recommend it to others.',
+    },
+    {
+      name: 'Mark Taylor',
+      rate: 2,
+      title: 'Disappointing experience',
+      imagePath: 'https://randomuser.me/api/portraits/women/4.jpg',
+      review:
+        'I had a disappointing experience with this bus service. The bus was old and uncomfortable, the driver was unfriendly and unhelpful, and the journey was delayed due to mechanical issues. I would not recommend this service.',
+    },
+  ];
 }

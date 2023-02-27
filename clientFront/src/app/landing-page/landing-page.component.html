@@ -1,5 +1,5 @@
 <div class="main">
-<app-nav-bar></app-nav-bar>
+  <app-nav-bar></app-nav-bar>
   <section id="home" style="width: 100%; height: 100%">
     <div class="container">
       <div>
@@ -101,24 +101,55 @@
     </div>
   </div>
   <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-    <members src="assets/img/clipboard-image-10.png">Mohamed Abdelhedi</members>
-    <members src="assets/img/clipboard-image-10.png">Hamza Faidi</members>
-    <members src="assets/img/clipboard-image-10.png">Aziz Boubaker</members>
+    <members
+      fb="https://www.facebook.com/midou200010/"
+      in="https://www.linkedin.com/in/mohamed-abdelhedi41/"
+      src="assets/img/mohamed.png"
+      >Mohamed Abdelhedi</members
+    >
+    <members
+      src="assets/img/hamza.png"
+      fb="https://www.facebook.com/hamza.fa1di"
+      in="https://www.linkedin.com/in/hamza-faidi/"
+      >Hamza Faidi</members
+    >
+    <members
+      fb="https://www.facebook.com/bbkr.aziz21"
+      in="https://www.linkedin.com/in/aziz-boubaker-687277209/"
+      src="assets/img/aziz.png"
+      >Aziz Boubaker</members
+    >
   </div>
   <div
     class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3"
     style="margin-top: 6px"
   >
-    <members src="assets/img/clipboard-image-10.png">Jaouhar Cherif</members>
-    <members src="assets/img/clipboard-image-10.png">Chadhe Sridi</members>
-    <members src="assets/img/clipboard-image-10.png">Farouk Loussaief</members>
+    <members
+      fb="https://www.facebook.com/profile.php?id=100004536161729"
+      in="https://www.linkedin.com/in/jawhar-cherif-b12571217/"
+      src="assets/img/jawhar.png"
+      >Jaouhar Cherif</members
+    >
+    <members
+      fb="https://www.facebook.com/chadha.sridi.9"
+      in="https://www.linkedin.com/in/chadha-sridi-456b4a224/"
+      src="assets/img/chadhe.png"
+      >Chadhe Sridi</members
+    >
+    <members
+      fb="https://www.facebook.com/profile.php?id=100010248576897"
+      in="https://www.linkedin.com/in/farouk-loussaief-13124a202/"
+      src="assets/img/farouk.png"
+      >Farouk Loussaief</members
+    >
   </div>
 </div>
 <contact-us></contact-us>
 
 <app-footer></app-footer>
 
-<div *ngIf="parentParam"
+<div
+  *ngIf="parentParam"
   [style.display]="parentParam ? 'block' : 'none'"
   class="modal"
   id="imagemodal"
@@ -127,6 +158,9 @@
   aria-labelledby="myModalLabel"
   aria-hidden="true"
 >
-  <sign-in [childParam]="parentParam" (childParamChange)="onChildParamChange($event)">></sign-in>
+  <sign-in
+    [childParam]="parentParam"
+    (childParamChange)="onChildParamChange($event)"
+    >></sign-in
+  >
 </div>
-
