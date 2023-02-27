@@ -13,7 +13,7 @@
     <div class="cross"> <a (click)="hide()" ><i class="fa fa-circle-xmark"> </i></a></div>
     <div class="form-container sign-up-container modal-body">
 
-      <form [formGroup]="registerForm">
+      <form [formGroup]="registerForm" (ngSubmit)="Registration()" >
         <h1>Create Account</h1>
 <!--        <div class="social-container">-->
 <!--          <a (click)="loginWithFacebook()"-->
@@ -26,14 +26,25 @@
         <span>or use your email for registration</span>
         <input
           type="text"
-          formControlName="name"
-          placeholder="Name"
+          formControlName="firstName"
+          placeholder="First Name"
           [ngClass]="{
-            'is-invalid': name?.touched && name?.invalid
+            'is-invalid': FirstName?.touched && FirstName?.invalid
           }"
         />
-        <div *ngIf="name?.touched && name?.invalid" class="invalid-feedback">
-          <div *ngIf="name?.errors?.['required']">name is required</div>
+        <div *ngIf="FirstName?.touched && FirstName?.invalid" class="invalid-feedback">
+          <div *ngIf="FirstName?.errors?.['required']">First Name is required</div>
+        </div>
+        <input
+          type="text"
+          formControlName="lastName"
+          placeholder="Last Name"
+          [ngClass]="{
+            'is-invalid': LastName?.touched && LastName?.invalid
+          }"
+        />
+        <div *ngIf="LastName?.touched && LastName?.invalid" class="invalid-feedback">
+          <div *ngIf="LastName?.errors?.['required']">Last Name is required</div>
         </div>
 
         <input
