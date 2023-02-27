@@ -1,4 +1,4 @@
-package com.example.webproject.service;
+package com.example.webproject.model;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

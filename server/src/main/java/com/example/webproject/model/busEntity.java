@@ -8,13 +8,13 @@ public class busEntity {
     @Id
     @Column(name = "id")
     private int id ;
-    @Column(name= "bus_plate")
+    @Column(name= "busPlate")
     private String busPlate ;
-    @Column(name= "bus_name")
+    @Column(name= "busName")
     private String busName ;
     @Column(name="capacity")
     private int capacity ;
-    @Column(name= "image_path")
+    @Column(name= "imagePath")
     private String imagePath ;
 
     public int getId() {
