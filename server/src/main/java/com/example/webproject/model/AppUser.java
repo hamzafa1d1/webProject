@@ -14,26 +14,31 @@ import java.util.Collections;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name="users")
 public class AppUser implements UserDetails {
     @SequenceGenerator(
             name = "user_sequence",
             sequenceName = "user_sequence",
             allocationSize = 1
     )
-    @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "user_sequence"
     )
+    @Id
+    @Column(name="id")
     private Long id;
+    @Column(name="first_name")
     private String firstName;
+    @Column(name="last_name")
     private String lastName;
+    @Column(name="email")
     private String email;
+    @Column(name="password")
     private String password;
+    @Column(name="user_type")
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
-    private Boolean locked = false;
-    private Boolean enabled = false;
 
     public AppUser(String firstName,
                    String lastName,
@@ -79,7 +84,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return !locked;
+        return true;
     }
 
     @Override
@@ -89,6 +94,6 @@ public class AppUser implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return enabled;
+        return true;
     }
 }
