@@ -25,7 +25,7 @@ public class WebSecurityConfig {
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/stations-cities-states","/searchFormData","/contact-us")
+                .requestMatchers("/stations-cities-states","/searchFormData","/contact-us" , "/feedback/**")
                 .permitAll()
                 .and()
                 .csrf()

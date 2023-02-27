@@ -6,10 +6,10 @@ import java.sql.Time;
 @Entity
 @Table(name = "feedback")
 public class feedback {
-    @Column(name = "Users_id")
+    @Column(name = "users_id")
 
     private Long users_id ;
-    @Column(name = "Bus_id")
+    @Column(name = "bus_id")
 
     private Integer bus_id;
     @Column(name = "review_text")

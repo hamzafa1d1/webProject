@@ -19,7 +19,7 @@ public class feedbackService {
     public List<Object[]> countfeedbackByUsers() {
         return feedRepository.countfeedbackByUsers();
     }
-    public List<Object[]> getfeedbacks(Long our_bus_id){
+    public List<Object> getfeedbacks(Long our_bus_id){
         return feedRepository.getfeedbacks( our_bus_id);
     }
     public List<Object[]> avgrating(Long our_bus_id){

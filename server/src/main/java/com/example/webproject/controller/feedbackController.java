@@ -25,7 +25,7 @@ public class feedbackController {
         return feedbackService.countfeedbackByUsers();
     }
     @GetMapping("/models/feedback/{our_bus_id}")
-    public ResponseEntity<List<Object[]>> getfeedbacks(Long our_bus_id){
+    public ResponseEntity<List<Object>> getfeedbacks(Long our_bus_id){
         return ResponseEntity.ok().body(feedbackService.getfeedbacks( our_bus_id));
     }
     @GetMapping("/models/avg/{our_bus_id}")

@@ -13,9 +13,9 @@ export class NavBarComponent  implements OnInit {
     console.log("hello")
 
      if((localStorage.getItem('token'))) {
-       const currentUser = JSON.parse(localStorage.getItem('token') ?? '');
-       this.loggedIn = true;
-       console.log(Object.keys(currentUser))
+       const token = localStorage.getItem('token') ;
+       this.loggedIn = true
+       console.log(token)
      }
      else{
        this.loggedIn = false;
@@ -40,6 +40,8 @@ export class NavBarComponent  implements OnInit {
   }
   signOut(): void {
     // this.authService.signOut();
+    localStorage.clear() ;
+    window.location.reload() ;
 
   }
   show() {

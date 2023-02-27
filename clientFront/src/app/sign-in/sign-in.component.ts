@@ -4,6 +4,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import{Location} from '@angular/common'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import{SignUpService} from 'src/app/services/Singup/sign-up.service'
+import {SignInService} from "../services/signIn/sign-in.service";
 
 @Component({
   selector: 'sign-in',
@@ -22,7 +23,7 @@ export class SignInComponent {
     this._childParam = value ;
   }
   @Output() childParamChange = new EventEmitter<boolean>();
-  constructor(formBuilder: FormBuilder  , private  location: Location , private signUpSerivce : SignUpService) {
+  constructor(formBuilder: FormBuilder  , private  location: Location , private signUpSerivce : SignUpService , private signInService : SignInService) {
     this.registerForm = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -85,7 +86,18 @@ export class SignInComponent {
         res =>{
           console.log(res) ;
           localStorage.setItem("token" , Object.values(res).toString()) ;
+          window.location.reload() ;
       }
+      )
+    }
+  }
+  Authenticate(){
+    if(this.loginForm.valid){
+      this.signInService.SignIn(this.loginForm.value).subscribe(
+        res =>{
+          localStorage.setItem("token" , Object.values(res).toString()) ;
+          window.location.reload() ;
+        }
       )
     }
   }

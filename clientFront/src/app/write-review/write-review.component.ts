@@ -1,7 +1,7 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BusDetailsComponent } from './../bus-details/bus-details.component';
 import { Component, OnInit } from '@angular/core';
-import { SocialAuthService } from 'angularx-social-login';
+
 
 @Component({
   selector: 'write-review',
@@ -15,7 +15,7 @@ export class WriteReviewComponent {
   constructor(
     private busDetailsComponent: BusDetailsComponent,
     formBuilder: FormBuilder,
-    private socialAuthService: SocialAuthService
+
   ) {
     this.submitreview = formBuilder.group({
       review: ['', Validators.required],
