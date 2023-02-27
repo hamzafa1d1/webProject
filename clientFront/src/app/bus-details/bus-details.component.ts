@@ -15,7 +15,7 @@ export class BusDetailsComponent {
     console.log('works');
   }
   max = 5;
-  rate = 2;
+  rate = 4;
   isReadonly = true;
   showModal!: boolean;
   showOverlay = false;
