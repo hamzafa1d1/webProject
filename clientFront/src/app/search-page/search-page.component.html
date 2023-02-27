@@ -108,8 +108,9 @@
         <div class="col col-md-4" *ngFor="let bus of busList">
           <product
             [src]="bus.imagePath"
-            [name]="bus.time"
-            [title]="bus.busName"
+            [time]="bus.time"
+            [name]="bus.busName"
+            [plate]="bus.busPlate"
           ></product>
         </div>
       </div>

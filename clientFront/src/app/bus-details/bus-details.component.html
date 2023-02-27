@@ -1,4 +1,4 @@
-<div class="container container2 modal-lg">
+<div class="container container2 .modal-xl">
   <div class="modal-body container" style="padding: 0; border-radius: 32px">
     <div class="row">
       <div class="col col1">
@@ -7,9 +7,14 @@
           <button (click)="hide()" class="close">✖</button>
         </div>
         <div class="left">
-          <review></review>
-          <review></review>
-          <review></review>
+          <review
+            *ngFor="let bus of bus1"
+            [src_user]="bus['imagePath']"
+            [rate_user]="bus['rate']"
+            [name_user]="bus['name']"
+            [title_user]="bus['title']"
+            [review_user]="bus['review']"
+          ></review>
         </div>
         <div class="modal-footer">
           <button (click)="show1()" class="btn btn1 btn-primary">
@@ -21,7 +26,7 @@
       <div class="col">
         <iframe
           frameborder="0"
-          src="https://i.pcmag.com/imagery/articles/01IB0rgNa4lGMBlmLyi0VP6-6.fit_lim.size_1050x.png"
+          src="../assets/img/direction.png"
           width="100%"
           height="100%"
           class="map"
@@ -35,9 +40,9 @@
         >
           <div class="row">
             <div class="col">
-              <h1 class="detail detail1">Bus Name : 752</h1>
-              <h1 class="detail">Bus plate : 55555555</h1>
-              <h1 class="detail">Time: 12:12</h1>
+              <h1 class="detail detail1">Bus Name : {{ bus_name }}</h1>
+              <h1 class="detail">Bus plate :{{ bus_plate }}</h1>
+              <h1 class="detail">Time:{{ time }}</h1>
             </div>
             <div class="col">
               <p

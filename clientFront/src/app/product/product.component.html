@@ -1,4 +1,4 @@
-<div>
+<div [class.noscroll]="showOverlay">
   <div class="row">
     <div class="">
       <div class="wsk-cp-product">
@@ -12,10 +12,10 @@
         </div>
         <div class="wsk-cp-text">
           <div class="category">
-            <span>{{ title }}</span>
+            <span>{{ name }}</span>
           </div>
           <div class="title-product">
-            <h3>{{ name }}</h3>
+            <h3>{{ time }}</h3>
           </div>
         </div>
       </div>
@@ -31,7 +31,11 @@
   aria-labelledby="myModalLabel"
   aria-hidden="true"
 >
-  <bus-details title="{{ title }}"></bus-details>
+  <bus-details
+    bus_name="{{ name }}"
+    bus_plate="{{ plate }}"
+    time="{{ time }}"
+  ></bus-details>
 </div>
 
 <div *ngIf="showOverlay">

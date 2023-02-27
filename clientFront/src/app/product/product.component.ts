@@ -7,10 +7,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent {
-  @Input('name') name!: string;
   @Input('src') src!: string;
-  @Input('title') title!: string;
-  showDetail: boolean = false;
+  @Input('name') name!: string;
+  @Input('time') time!: string;
+  @Input('plate') plate!: string;
+
   //show() {
   // this.showDetail = true;
   //}

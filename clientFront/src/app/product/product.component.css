@@ -205,3 +205,8 @@ a.buy-btn{
   background: #4b56d2;
   font-size: 14px;
 }
+.noscroll{
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}

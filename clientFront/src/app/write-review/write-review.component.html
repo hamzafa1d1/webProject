@@ -2,21 +2,49 @@
   <div class="cookiesContent" id="cookiesPopup">
     <button (click)="hide()" class="close">✖</button>
     <h2>Write your Review</h2>
-
-    <textarea
-      class="form-control contact-message"
-      id="message"
-      name="message"
-      rows="6"
-    ></textarea>
-    <rating
-      class="rating"
-      style="color: #0275d8; font-size: 40px"
-      [(ngModel)]="rate"
-      [max]="max"
-      [readonly]="isReadonly"
-    >
-    </rating>
+    <form [formGroup]="submitreview">
+      <input
+        type="text"
+        formControlName="title"
+        placeholder="title"
+        style="margin-bottom: 10px"
+        [ngClass]="{
+          'is-invalid': title?.touched && title?.invalid
+        }"
+        class="form-control contact-message"
+        id="title"
+        name="title"
+        [(ngModel)]="title1"
+      />
+      <div *ngIf="title?.touched && title?.invalid" class="invalid-feedback">
+        <div *ngIf="title?.errors?.['required']">title is required</div>
+      </div>
+      <textarea
+        formControlName="review"
+        style="margin-bottom: 10px"
+        placeholder="review"
+        [ngClass]="{
+          'is-invalid': review?.touched && review?.invalid
+        }"
+        class="form-control contact-message"
+        id="message"
+        name="message"
+        [(ngModel)]="review1"
+        rows="6"
+      ></textarea>
+      <div *ngIf="review?.touched && review?.invalid" class="invalid-feedback">
+        <div *ngIf="review?.errors?.['required']">review is required</div>
+      </div>
+      <rating
+        class="rating"
+        formControlName="rate"
+        style="color: #0275d8; font-size: 40px"
+        [(ngModel)]="rate"
+        [max]="max"
+        [readonly]="isReadonly"
+      >
+      </rating>
+    </form>
 
     <button (click)="hide()" class="submit">Submit</button>
   </div>
