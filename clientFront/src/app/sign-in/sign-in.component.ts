@@ -3,12 +3,7 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import{Location} from '@angular/common'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  SocialAuthService,
-  FacebookLoginProvider,
-  SocialUser,
-} from 'angularx-social-login';
-import {FacebookAccountService} from "../services/facebookAccountServices/facebook-account.service";
+
 @Component({
   selector: 'sign-in',
   templateUrl: './sign-in.component.html',
@@ -20,13 +15,13 @@ export class SignInComponent {
   loginForm!: FormGroup;
   submitted = false;
   _childParam!: boolean ;
-  socialUser!: SocialUser;
+
   isLoggedin?: boolean = undefined;
   @Input() set childParam(value:boolean){
     this._childParam = value ;
   }
   @Output() childParamChange = new EventEmitter<boolean>();
-  constructor(formBuilder: FormBuilder , private socialAuthService: SocialAuthService , private  location: Location , private facebookAccountService : FacebookAccountService) {
+  constructor(formBuilder: FormBuilder  , private  location: Location) {
     this.registerForm = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -38,24 +33,7 @@ export class SignInComponent {
     });
 
   }
-  loginWithFacebook(): void {
-    // this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
-    // this.socialAuthService.authState.subscribe((user) => {
-    //   if (user != null) {
-    //     // The user is logged in
-    //     console.log('Logged in as: ' + user.name);
-    //     console.log(user) ;
-    //     localStorage.setItem('currentUser', JSON.stringify(user));
-    //   } else {
-    //     // The user is not logged in
-    //     console.log('Not logged in');
-    //   }
-    //   this.location.replaceState(this.location.path()) ;
-    //   window.location.reload();
-    // });
-    this.facebookAccountService.loginWithFacebook()
 
-  }
 
 
 

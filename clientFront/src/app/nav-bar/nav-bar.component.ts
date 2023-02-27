@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {SocialAuthService, SocialUser} from "angularx-social-login";
-import {FacebookAccountService} from "../services/facebookAccountServices/facebook-account.service";
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,20 +12,20 @@ export class NavBarComponent  implements OnInit {
    ngOnInit () {
     console.log("hello")
 
-     if((localStorage.getItem('currentUser'))) {
-       const currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '');
-       this.loggedIn = true;
-       console.log(Object.keys(currentUser))
-     }
-     else{
-       this.loggedIn = false;
-
-     }
-     this.loaded = true;
+     // if((localStorage.getItem('currentUser'))) {
+     //   const currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '');
+     //   this.loggedIn = true;
+     //   console.log(Object.keys(currentUser))
+     // }
+     // else{
+     //   this.loggedIn = false;
+     //
+     // }
+     // this.loaded = true;
 
   }
 
-  constructor(private authService: SocialAuthService ,  private facebookAccountService : FacebookAccountService) {
+  constructor() {
     // let currentUser = this.facebookAccountService.getUser() ;
     //   console.log("user") ;
     //   console.log(currentUser)
@@ -41,7 +40,7 @@ export class NavBarComponent  implements OnInit {
   }
   signOut(): void {
     // this.authService.signOut();
-    this.facebookAccountService.signOut()
+
   }
   show() {
     this.showModal = true;
